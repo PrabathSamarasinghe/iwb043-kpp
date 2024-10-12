@@ -6,26 +6,29 @@ import Login_admin from './pages/prabath/login_admin';
 import Manupage_1 from './pages/manujaya/page_1';
 import Dashboard from './pages/geesan/user_dashboard';
 import Kaveeshapage_1 from './pages/kaveesha/page_1';
+import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
+import Help from './pages/kaveesha/Pages/Help';
+import Navbar from './pages/kaveesha/Components/Navbar';
 import Signup from './pages/prabath/signup_user';
 // import UserDashboard from './pages/prabath/user_dashboard';
-import logo from './assets/KPP_bbg_medium.png';
+//import logo from './assets/KPP_bbg_medium.png';
 
 const App = () => {
   return (
     
     <div>
       <BrowserRouter>
-      <header>
+      {/*<header>
         <nav>
           <Link to='/'>Home</Link>
           <Link to='/aboutus'>About us</Link>
           <Link to='/contactus'>Contact us</Link>
         </nav>
         <img src={logo} className='mainLogo'></img>
-      </header>
-      
+  </header>*/}
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Kaveeshapage_1 />} />
+          <Route path='/' element = {<InvesmentHome />} />
           <Route path="/contactus" element={<Kaveeshapage_1 />} />
           <Route path="/aboutus" element={<Kaveeshapage_1 />} />
 
@@ -37,8 +40,7 @@ const App = () => {
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
           <Route path="/manujaya/page_1" element={<Manupage_1 />} />
-
-          <Route path='/kaveesha/page_1' element = {<Kaveeshapage_1 />} />
+          <Route path='/Help' element = {<Help />} />
 
         </Routes>
       </BrowserRouter>

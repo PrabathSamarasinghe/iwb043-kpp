@@ -1,13 +1,7 @@
-:root {
-    --primary-color: #101a24;
-    --secondary-color: #89e5ff;
-    --background-color: #304d6b;
-    --text-color: #fff;
-  }
-
 .rib{
     display: flex;
     justify-content: start;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 .rib div.dButton{
     align-self: flex-start;

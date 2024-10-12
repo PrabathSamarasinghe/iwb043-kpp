@@ -7,6 +7,7 @@ const Dashboard = () => {
     <div>
       <Ribbon />
       <div className='mainContainer'>
+        <h1>Your Investments</h1>
       </div>
     </div>
   )

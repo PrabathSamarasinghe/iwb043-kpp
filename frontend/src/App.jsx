@@ -8,6 +8,7 @@ import Dashboard from './pages/geesan/user_dashboard';
 import Kaveeshapage_1 from './pages/kaveesha/page_1';
 import Signup from './pages/prabath/signup_user';
 // import UserDashboard from './pages/prabath/user_dashboard';
+import logo from './assets/KPP_bbg_medium.png';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Link to='/aboutus'>About us</Link>
           <Link to='/contactus'>Contact us</Link>
         </nav>
+        <img src={logo} className='mainLogo'></img>
       </header>
       
         <Routes>
@@ -41,8 +43,9 @@ const App = () => {
         </Routes>
       </BrowserRouter>
 
-      <footer className="footer bg-base-200 text-base-content p-10">
-    </footer>
+      <footer className="footer">
+      <p>&copy; 2024 KPP. All rights reserved.</p>
+      </footer>
     </div>
   )
 }

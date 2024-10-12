@@ -2,7 +2,7 @@ import React from 'react'
 
 import '../Styles/help.css';
 
-export default function help() {
+export default function Help() {
   return (
     // codes
     <div className='help'>

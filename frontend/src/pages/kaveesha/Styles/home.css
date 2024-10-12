@@ -1,5 +1,5 @@
 .home{
-    background: url(/public/Home.png);
+    background: url(/Home.png);
     width: 100%;
     min-height: 100vh;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-button{
+.home button{
     width: 200px;
     padding: 15px 0;
     border-radius: 25px;
@@ -49,16 +49,16 @@ span{
     border-radius: 25px;
     z-index: -1;
 }
-button:hover span{
+.home button:hover span{
     width: 100%;
     transition-duration: 0.5s;
 }
-button:hover{
+.home button:hover{
     border: none;
     color: aliceblue;
     transition-duration: 0.5s;
 }
-.button_container {
+.home .button_container {
     margin-bottom: 80px;
     display: flex;
     justify-content: center;

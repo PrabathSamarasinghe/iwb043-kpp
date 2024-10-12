@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #101a24;
+    --secondary-color: #89e5ff;
+    --background-color: #304d6b;
+    --text-color: #fff;
+  }
+
+.rib{
+    display: flex;
+    justify-content: start;
+}
+.rib div.dButton{
+    align-self: flex-start;
+    margin-left: auto;
+}
+.rib div.dbHeader{
+    padding: 10px 68px 10px 24px;
+    background-color: rgba(255, 255, 255, 0.386);
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+}

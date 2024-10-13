@@ -2,41 +2,28 @@ import React from 'react'
 import { useState } from 'react';
 import 'boxicons'
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../auth';
+
 const Login_sys_admin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  function submit(event){
+  async function submit (event){
     event.preventDefault();
     //post the username password to the backend
     
-    const allow = () =>{
-      navigate("/geesan/user_dashboard");
-    }
     const payload = {username : username, password : password};
-    const url = "http://localhost:9090/CheckSysAdmin";
-    fetch(url, {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify(payload)
-      })
-      .then(response => {
-          if (!response.ok) {
-              alert("wrong username or password");
-              throw Error;
-          }
-          return response.text(); // Parse the response as JSON
-      })
-      .then(data => {
-          console.log('Success:', data); // Handle the response data
-          allow();
-      })
-      .catch((error) => {
-          console.error('Error:', error); // Handle errors
-      });
-    //Get a token if possible
+    const url = "/CheckSysAdmin";
+    try {
+      const response = await axiosInstance.post(url, payload); // Use the custom Axios instance
+      console.log('Response data:', response.data);
+      localStorage.setItem('authToken', response.data);// Handle the response data
+      navigate("/geesan/sysAd_dashboard");
+      // Handle the response (e.g., show a success message)
+    } catch (error) {
+      alert("Invalid username or password");
+      // Handle the error (e.g., show an error message)
+    }
   }
   return (
     <>

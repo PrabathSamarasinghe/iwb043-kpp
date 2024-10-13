@@ -4,6 +4,7 @@ import ballerinax/mysql;
 import ballerinax/mysql.driver as _;
 import ballerina/sql;
 import ballerina/jwt;
+import ballerina/crypto;
 
 // Create a MySQL client
 mysql:Client dbClient = check new ("localhost", "root", "123#sgm", 
@@ -19,9 +20,10 @@ final string secretKey = "KPP_secret";
 service / on new http:Listener(9090) {
     resource function post CheckSysAdmin(SysAdminCred payl) returns string|http:NotFound|http:ClientError|jwt:Error {
         //Returns a token for system admin credentials
-        //Ex:-  http://localhost:9090/CheckSysAdmin?inputUsername=Geesan123&inputPassword=pass123
+        string hashedPass = crypto:hashSha256(payl.password.toBytes()).toBase16();
         sql:ParameterizedQuery qerry = `Select * FROM system_admins WHERE username = ${payl.username} 
-        and password = ${payl.password}`;
+        and password = ${hashedPass}`;
+        io:print(hashedPass);
         SysAdmin|sql:Error response = dbClient->queryRow(qerry);
         if(response is SysAdmin){
             jwt:IssuerConfig issuerConfig = {
@@ -43,6 +45,7 @@ service / on new http:Listener(9090) {
         //Authorization header tag must have a valid token
         string jwt = check req.getHeader("Authorization");
         var decRes = check jwt:decode(jwt);
+        io:print(decRes[1].sub);
         return decRes[1].sub;
     }
 }

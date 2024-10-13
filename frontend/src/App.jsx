@@ -11,6 +11,7 @@ import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
 import Signup from './pages/prabath/signup_user';
 import Login_sys_admin from './pages/geesan/login_sysAd';
+import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           <Route path='/geesan/login_sys_ad' element={<Login_sys_admin />} />
+          <Route path='/geesan/sysAd_dashboard' element={<SysAd_dashboard />} />
           
           <Route path="/manujaya/page_1" element={<Manupage_1 />} />
           <Route path='/Help' element = {<Help />} />

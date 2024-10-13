@@ -11,6 +11,11 @@ mysql:Client dbClient = check new ("localhost", "root", "123#sgm",
 
 final string secretKey = "KPP_secret";
 
+@http:ServiceConfig {
+    cors: {
+        allowOrigins: ["*"]
+    }
+}
 service / on new http:Listener(9090) {
     resource function post CheckSysAdmin(SysAdminCred payl) returns string|http:NotFound|http:ClientError|jwt:Error {
         //Returns a token for system admin credentials

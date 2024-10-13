@@ -3,10 +3,6 @@
     justify-content: start;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
-.rib div.dButton{
-    align-self: flex-start;
-    margin-left: auto;
-}
 .rib div.dbHeader{
     padding: 10px 68px 10px 24px;
     background-color: rgba(255, 255, 255, 0.386);

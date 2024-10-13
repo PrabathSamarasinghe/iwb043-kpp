@@ -1,34 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './login_user.css'
 import 'boxicons'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axiosInstance from '../auth';
 const login_user = () => {
-  
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  async function submit (event){
+    event.preventDefault();
+    //post the username password to the backend
+    
+    const payload = {username : username, password : password};
+    const url = "/CheckUser";
+    try {
+      const response = await axiosInstance.post(url, payload); // Use the custom Axios instance
+      console.log('Response data:', response.data);
+      localStorage.setItem('authToken', response.data);// Handle the response data
+      navigate("/geesan/user_dashboard");
+      // Handle the response (e.g., show a success message)
+    } catch (error) {
+      alert("Invalid username or password");
+      // Handle the error (e.g., show an error message)
+    }
+  }
   return (
     <>
       <main>
       <div className='login'>
         <i className='bx bxs-user-circle'></i>
-        <h3 className='heading'>USER LOGIN</h3>
+        <h3 className='heading'>User LOGIN</h3>
         
-        <form>
+        <form onSubmit={submit}>
           <div className="form-group">
             <i className='bx bxs-user'></i>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='email'/>
+            <input type="username" className="form-control" id="exampleInputUsername1" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
           </div>
           <div className="form-group">
             <i className='bx bxs-lock-alt'></i>
-            <input type="password" className="form-control" id="exampleInputPassword1" placeholder='password'/>
+            <input type="password" className="form-control" id="exampleInputPassword1" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
           <div className="form-group form-check">
             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
             <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
           </div>
           <button type="submit" className="btn btn-primary">Login</button>
-
-          <p className="signup-link">
-            Don't have an account? <Link to="/prabath/signup_user">Sign up</Link>
-          </p>
         </form>
       </div>
       </main>

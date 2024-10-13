@@ -3,7 +3,7 @@ type SysAdmin record {|
     string password;
     string name;
 |};
-type SysAdminCred record {|
+type Cred record {|
     string username;
     string password;
 |};

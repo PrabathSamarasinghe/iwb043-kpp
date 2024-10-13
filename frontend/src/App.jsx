@@ -39,6 +39,7 @@ const App = () => {
           <Route path='/prabath/signup_user' element={<Signup />} />
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
+          
           <Route path='/geesan/login_sys_ad' element={<Login_sys_admin />} />
           <Route path='/geesan/sysAd_dashboard' element={<SysAd_dashboard />} />
           

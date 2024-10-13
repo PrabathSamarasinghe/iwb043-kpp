@@ -1,15 +1,15 @@
 import React from 'react'
-import './login_user.css'
+import './login.css'
 import 'boxicons'
 import { Link } from 'react-router-dom';
-const login_user = () => {
+const login_admin = () => {
   
   return (
     <>
       <main>
       <div className='login'>
-        <i className='bx bxs-user-circle'></i>
-        <h3 className='heading'>USER LOGIN</h3>
+        <i class='bx bxs-shield-alt-2'></i>
+        <h3 className='heading'>ADMIN LOGIN</h3>
         
         <form>
           <div className="form-group">
@@ -20,15 +20,11 @@ const login_user = () => {
             <i className='bx bxs-lock-alt'></i>
             <input type="password" className="form-control" id="exampleInputPassword1" placeholder='password'/>
           </div>
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+          <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customControlValidation1" />
+              <label class="custom-control-label" for="customControlValidation1">Remember me</label>
           </div>
           <button type="submit" className="btn btn-primary">Login</button>
-
-          <p className="signup-link">
-            Don't have an account? <Link to="/prabath/signup_user">Sign up</Link>
-          </p>
         </form>
       </div>
       </main>
@@ -36,4 +32,4 @@ const login_user = () => {
   );
 }
 
-export default login_user
+export default login_admin

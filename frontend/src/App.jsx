@@ -1,16 +1,17 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Login_user from './pages/prabath/login_user';
-import Login_bank from './pages/prabath/login_bank';
-import Login_admin from './pages/prabath/login_admin';
+import Login_user from './pages/prabath/login/login_user';
+import Login_bank from './pages/prabath/login/login_bank';
+import Login_admin from './pages/prabath/login/login_admin';
 import Manupage_1 from './pages/manujaya/page_1';
 import Dashboard from './pages/geesan/user_dashboard';
 import Kaveeshapage_1 from './pages/kaveesha/page_1';
 import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
 import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
-import Signup from './pages/prabath/signup_user';
-// import UserDashboard from './pages/prabath/user_dashboard';
+import SignupUser from './pages/prabath/signup/signup_user';
+import SignupBank from './pages/prabath/signup/signup_bank';
+
 //import logo from './assets/KPP_bbg_medium.png';
 
 const App = () => {
@@ -35,8 +36,10 @@ const App = () => {
           <Route path="/prabath/login_user" element={<Login_user />} />
           <Route path="/prabath/login_bank" element={<Login_bank />} />
           <Route path="/prabath/login_admin" element={<Login_admin />} />
-          <Route path='/prabath/signup_user' element={<Signup />} />
-          {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
+          <Route path='/prabath/signup_user' element={<SignupUser />} />
+          <Route path='/prabath/signup_bank' element={<SignupBank />} />
+
+
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
           <Route path="/manujaya/page_1" element={<Manupage_1 />} />

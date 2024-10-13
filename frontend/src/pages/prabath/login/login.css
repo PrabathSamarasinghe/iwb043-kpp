@@ -25,9 +25,11 @@
     color: white;
     position: relative;
     left: 37%;
-    transform: translateY(10%);
+    transform: translateY(15%);
 }
-
+main{
+    margin-bottom: 10vh;
+}
 /* Button Styling */
 .btn {
     width: 100%;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import './login_user.css'
+import './login.css'
 import 'boxicons'
 import { Link, useNavigate } from 'react-router-dom';
-import axiosInstance from '../auth';
-const login_user = () => {
+import axiosInstance from '../../auth';
+const login_admin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();

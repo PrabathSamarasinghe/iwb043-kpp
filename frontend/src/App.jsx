@@ -1,15 +1,15 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Login_user from './pages/prabath/login_user';
-import Login_bank from './pages/prabath/login_bank';
-import Login_admin from './pages/prabath/login_admin';
-import Manupage_1 from './pages/manujaya/page_1';
+import Login_user from './pages/prabath/login/login_user';
+import Login_bank from './pages/prabath/login/login_bank';
+import Login_admin from './pages/prabath/login/login_admin';
+import Manupage_1 from './pages/manujaya/bank_admin';
 import Dashboard from './pages/geesan/user_dashboard';
 import Kaveeshapage_1 from './pages/kaveesha/page_1';
 import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
 import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
-import Signup from './pages/prabath/signup_user';
+import Signup from './pages/prabath/signup/signup_user';
 import Login_sys_admin from './pages/geesan/login_sysAd';
 import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';

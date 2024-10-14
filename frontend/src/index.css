@@ -10,8 +10,11 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-image: url(/Home.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--primary-color);
 }
 header {
     background-color: var(--primary-color);

@@ -1,5 +1,4 @@
 import React from 'react'
-import Profile_dd from './Profile_dd'
 import './ribon.css'
 
 const Ribbon = () => {
@@ -8,9 +7,6 @@ const Ribbon = () => {
         <div className='rib'>
             <div className='dbHeader'>
                 <h1>Dashboard</h1>
-            </div>
-            <div className='dButton'>
-                <Profile_dd />
             </div>
         </div>
     </div>

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import './login_user.css'
+import React from 'react'
+import { useState } from 'react';
 import 'boxicons'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../auth';
-const login_user = () => {
+
+const Login_sys_admin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -12,12 +13,12 @@ const login_user = () => {
     //post the username password to the backend
     
     const payload = {username : username, password : password};
-    const url = "/CheckUser";
+    const url = "/CheckSysAdmin";
     try {
       const response = await axiosInstance.post(url, payload); // Use the custom Axios instance
       console.log('Response data:', response.data);
       localStorage.setItem('authToken', response.data);// Handle the response data
-      navigate("/geesan/user_dashboard");
+      navigate("/geesan/sysAd_dashboard");
       // Handle the response (e.g., show a success message)
     } catch (error) {
       alert("Invalid username or password");
@@ -28,8 +29,8 @@ const login_user = () => {
     <>
       <main>
       <div className='login'>
-        <i class='bx bxs-shield-alt-2'></i>
-        <h3 className='heading'>ADMIN LOGIN</h3>
+        <i className='bx bxs-user-circle'></i>
+        <h3 className='heading'>System Admin LOGIN</h3>
         
         <form onSubmit={submit}>
           <div className="form-group">
@@ -40,9 +41,9 @@ const login_user = () => {
             <i className='bx bxs-lock-alt'></i>
             <input type="password" className="form-control" id="exampleInputPassword1" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
-          <div class="custom-control custom-checkbox mb-3">
-              <input type="checkbox" class="custom-control-input" id="customControlValidation1" />
-              <label class="custom-control-label" for="customControlValidation1">Remember me</label>
+          <div className="form-group form-check">
+            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
           </div>
           <button type="submit" className="btn btn-primary">Login</button>
         </form>
@@ -51,5 +52,6 @@ const login_user = () => {
     </>
   );
 }
+ 
 
-export default login_admin
+export default Login_sys_admin

@@ -1,3 +1,6 @@
+drop database kpp;
+create database kpp;
+use kpp;
 -- End user credentials
 CREATE TABLE users (
     username VARCHAR(20) NOT NULL,
@@ -66,21 +69,27 @@ CREATE TABLE fixed_deposites (
     f_dep_ID INT NOT NULL AUTO_INCREMENT,
     amount DECIMAL(15,2) NOT NULL, -- Amount of the fixed deposit
     f_ID INT NOT NULL, -- Foreign key referencing the fixed product
+    username VARCHAR(20) NOT NULL, -- Foreign key referencing the users
     date_of_deposite DATE NOT NULL, -- Date the deposit was made
     confirmed BOOLEAN DEFAULT 0, -- Whether the deposit is confirmed or not
     PRIMARY KEY (f_dep_ID),
-    FOREIGN KEY (f_ID) REFERENCES fixed_products(f_ID)
+    FOREIGN KEY (f_ID) REFERENCES fixed_products(f_ID),
+    FOREIGN KEY (username) REFERENCES users(username)
 );
+
 -- Initialized savings_deposites
 CREATE TABLE savings_deposites (
     s_dep_ID INT NOT NULL AUTO_INCREMENT,
     amount DECIMAL(15,2) NOT NULL, -- Amount of the savings deposit
     s_ID INT NOT NULL, -- Foreign key referencing the savings product
+    username VARCHAR(20) NOT NULL, -- Foreign key referencing the users
     date_of_deposite DATE NOT NULL, -- Date the deposit was made
     confirmed BOOLEAN DEFAULT 0, -- Whether the deposit is confirmed or not
     PRIMARY KEY (s_dep_ID),
-    FOREIGN KEY (s_ID) REFERENCES savings_products(s_ID)
+    FOREIGN KEY (s_ID) REFERENCES savings_products(s_ID),
+    FOREIGN KEY (username) REFERENCES users(username)
 );
+
 
 -- Details of the system admins
 CREATE TABLE system_admins (

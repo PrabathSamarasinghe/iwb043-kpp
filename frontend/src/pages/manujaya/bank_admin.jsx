@@ -1,7 +1,6 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import './bank_admin.css';
 import Product from './Components/product';
 import Form from './Components/Form';
 import { productData, responsive } from './data';

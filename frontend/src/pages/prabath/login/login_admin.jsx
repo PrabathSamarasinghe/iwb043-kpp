@@ -2,6 +2,7 @@ import React from 'react'
 import './login.css'
 import 'boxicons'
 import { Link } from 'react-router-dom';
+
 const login_admin = () => {
   
   return (

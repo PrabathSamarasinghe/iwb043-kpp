@@ -1,0 +1,51 @@
+export const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
+  export const productData =[{
+    id:1,
+    name:'Bank 1',
+    number_of_invesments:64,
+    discription :'this bank is.............'
+
+  },{
+    id:2,
+    name:'Bank 2',
+    number_of_invesments:8,
+    discription :'this bank is.............'
+
+  },{
+    id:3,
+    name:'Bank 3',
+    number_of_invesments:5,
+    discription :'this bank is.............'
+
+  },{
+    id:4,
+    name:'Bank 4',
+    number_of_invesments:48,
+    discription :'this bank is.............'
+
+  },{
+    id:5,
+    name:'Bank 5',
+    number_of_invesments:50,
+    discription :'this bank is.............'
+
+  }]

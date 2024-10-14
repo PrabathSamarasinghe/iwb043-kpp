@@ -28,7 +28,10 @@ const login_user = () => {
     <>
       <main>
       <div className='login'>
-        <i className='bx bxs-user-circle'></i>
+      <div className='headimg'>
+      <i className='bx bxs-user-circle'></i>
+      </div>
+        
         <h3 className='heading'>USER LOGIN</h3>
         
         <form onSubmit={submit}>

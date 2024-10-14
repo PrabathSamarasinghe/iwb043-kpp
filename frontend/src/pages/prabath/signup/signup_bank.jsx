@@ -5,7 +5,10 @@ const signup_bank = () => {
   return (
     <main>
       <div className='signupdiv'>
-        <i class='bx bxs-bank'></i>
+      <div className='headimg'>
+      <i class='bx bxs-bank'></i>
+      </div>
+        
         <h3 className='heading'>BANK SIGNUP</h3>
         <form className="needs-validation" noValidate>
           <div className="form-row">

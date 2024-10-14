@@ -7,7 +7,10 @@ const login_bank = () => {
     <>
       <main>
       <div className='login'>
-        <i class='bx bxs-bank'></i>
+      <div className='headimg'>
+      <i class='bx bxs-bank'></i>
+      </div>
+        
         <h3 className='heading'>BANK LOGIN</h3>
         
         <form>

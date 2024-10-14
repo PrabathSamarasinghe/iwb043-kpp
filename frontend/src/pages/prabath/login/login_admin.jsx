@@ -28,7 +28,10 @@ const login_admin = () => {
     <>
       <main>
       <div className='login'>
-        <i class='bx bxs-shield-alt-2'></i>
+      <div className='headimg'>
+      <i class='bx bxs-shield-alt-2'></i>
+      </div>
+        
         <h3 className='heading'>ADMIN LOGIN</h3>
         
         <form onSubmit={submit}>

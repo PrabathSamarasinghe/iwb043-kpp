@@ -5,7 +5,9 @@ const signup_user = () => {
   return (
     <main>
       <div className='signupdiv'>
-      <i class='bx bxs-user' ></i>
+        <div className='headimg'>
+        <i class='bx bxs-user' ></i>
+        </div>
         <h3 className='heading'>USER SIGNUP</h3>
         <form className="needs-validation" noValidate>
           <div className="form-row">

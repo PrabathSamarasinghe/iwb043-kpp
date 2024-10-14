@@ -23,7 +23,7 @@ const login_bank = () => {
               <input type="checkbox" class="custom-control-input" id="customControlValidation1" />
               <label class="custom-control-label" for="customControlValidation1">Remember me</label>
           </div>
-          <button type="submit" className="btn btn-primary">Login</button>
+          <button type="submit" className="btn btn-primary" onClick={() => {<Link to="/manujaya/bank_admin"> </Link>}}>Login</button>
 
           <p className="signup-link">
             Don't have an account? <Link to="/prabath/signup_bank">Sign up</Link>

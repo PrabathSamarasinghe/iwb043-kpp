@@ -21,7 +21,7 @@ header {
     font-size: 1.5em;
     box-shadow: 0 4px 2px -2px gray;
     display: flex;
-    /*clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);*/
+    /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); */
 }
 
 header h1 {

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Login_user from './pages/prabath/login/login_user';
 import Login_bank from './pages/prabath/login/login_bank';
 import Login_admin from './pages/prabath/login/login_admin';
-import Manupage_1 from './pages/manujaya/page_1';
+import Manupage_1 from './pages/manujaya/bank_admin';
 import Dashboard from './pages/geesan/user_dashboard';
 import Kaveeshapage_1 from './pages/kaveesha/page_1';
 import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
@@ -42,7 +42,7 @@ const App = () => {
 
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
-          <Route path="/manujaya/page_1" element={<Manupage_1 />} />
+          <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
           <Route path='/Help' element = {<Help />} />
 
         </Routes>

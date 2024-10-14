@@ -26,7 +26,7 @@ const login_bank = () => {
           <button type="submit" className="btn btn-primary">Login</button>
 
           <p className="signup-link">
-            Don't have an account? <Link to="/prabath/signup_user">Sign up</Link>
+            Don't have an account? <Link to="/prabath/signup_bank">Sign up</Link>
           </p>
         </form>
       </div>

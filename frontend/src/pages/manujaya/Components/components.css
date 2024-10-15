@@ -24,19 +24,57 @@
    
     
   }
-  .enter {
+  .menter {
     display: flex;
     justify-content: center;
     align-items:center;
     margin: 20px 0;
     margin-right: 50px; 
   }
-  .btn{
+  .mbtn{
     padding: 8px 16px;
     font-size: 14px;
     cursor: pointer;
-  
+
+    background-color:rgb(3, 89, 23);
+    color:#f3f9fa;
+    width: 500px;      /* Set specific width (optional) */
+   height: 50px;  
+    
+
   }
   .form-inline{
     align-items: center;
   }
+  .mname{
+    color: #000;
+  }
+  .mdiscription{
+    color: rgb(79, 80, 79);
+  }
+  
+.modalBackground{
+  background-color: #000;
+  position: absolute;
+  top: 200px;
+  left: 400px;
+  padding: 10px;
+  border-radius: 2%;
+}
+.manubtn{
+  position: relative;
+  right: -520px;
+}
+.mmmmbtn{
+  position: relative;
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(3, 89, 23);
+  color: white;
+  cursor: pointer;
+  left: 700;
+}
+
+  

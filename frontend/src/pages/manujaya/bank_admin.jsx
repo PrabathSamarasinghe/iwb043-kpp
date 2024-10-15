@@ -12,7 +12,9 @@ import SysAd_dashboard from '../geesan/sysAd_dashboard';
 function bank_admin(){
     const[OpenModal,setOpenModal]=useState(false);
      const product= productData.map(item=> (<Product name={item.name} number_of_invesments={item.number_of_invesments} discription={item.discription} />));
-    return(<div className='bank_admin'>
+    return(
+    <main>
+     <div className='bank_admin'>
       <div className='mcenter'><h1 className='mtopic'>Bank List</h1></div>
       <Carousel showDots={true} responsive={responsive}>
         
@@ -29,6 +31,9 @@ function bank_admin(){
 <button className="mmmbtn" onClick={()=>{setOpenModal(true);}}>Update Saving Product Interest Rates</button>
 </div> 
      {OpenModal && <S_Modal closeModal={setOpenModal}/>}
-     <hr /></div>);
+     <hr />
+     </div>
+    </main>
+     );
 }
 export default bank_admin;

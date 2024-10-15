@@ -1,0 +1,21 @@
+.side{
+    /* background-color: #f8f9fa; */
+    display: flex;
+    gap: 5px;
+    width: 65%;
+    position: relative;
+    left: 17%;
+    top: 2em;
+}
+
+.topic{
+    background-color:  #304d6b;
+    color: white;
+    text-align: center;
+}
+.sside{
+    background-color: rgb(114, 205, 236);
+    overflow-y: auto;
+    width: 650px;
+    height: 31em;
+}

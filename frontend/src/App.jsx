@@ -12,9 +12,11 @@ import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
 import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
 import Signup from './pages/prabath/signup/signup_user';
+import SignupBank from './pages/prabath/signup/signup_bank';
 import Login_sys_admin from './pages/geesan/login_sysAd';
 import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';
+import AdminDash from './pages/prabath/dashboard/admin_dash';
 
 const App = () => {
   return (
@@ -39,6 +41,8 @@ const App = () => {
           <Route path="/prabath/login_bank" element={<Login_bank />} />
           <Route path="/prabath/login_admin" element={<Login_admin />} />
           <Route path='/prabath/signup_user' element={<Signup />} />
+          <Route path='/prabath/signup_bank' element={<SignupBank />} />
+          <Route path='/prabath/admin_dash' element={<AdminDash />} />
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           

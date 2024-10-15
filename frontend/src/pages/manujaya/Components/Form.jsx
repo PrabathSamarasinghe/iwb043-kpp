@@ -27,7 +27,7 @@ function Form(){
           pattern="[A-Za-z0-9]{6,12}"
           />
   </div>
- <div><button  type="submit" className="mbtn">Get User Info</button></div> 
+ <div><button  type="submit" className="mmmmbtn">Get User Info</button></div> 
 </form>
     );
 }

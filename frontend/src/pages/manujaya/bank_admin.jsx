@@ -3,7 +3,8 @@ import 'react-multi-carousel/lib/styles.css';
 import Product from './Components/product';
 import Form from './Components/Form';
 import Button from './Components/Button';
-import Modal from './Components/Modal';
+import F_Modal from './Components/Fixed_Modal';
+import S_Modal from './Components/Saving_Modal';
 import './bank_admin.css';
 import { productData, responsive } from './data';
 import { useState } from 'react';
@@ -19,8 +20,14 @@ function bank_admin(){
         
       </Carousel><hr /><Form></Form><hr />
      <div className='mopen'>
-<button className="mmbtn" onClick={()=>{setOpenModal(true);}}>Update Bank Interest Rates</button>
+<button className="mmbtn" onClick={()=>{setOpenModal(true);}}>Update Fixed Product Interest Rates</button>
 </div> 
-     {OpenModal && <Modal closeModal={setOpenModal}/>}</div>);
+     {OpenModal && <F_Modal closeModal={setOpenModal}/>}
+     <hr />
+     <div className='mmopen'>
+<button className="mmmbtn" onClick={()=>{setOpenModal(true);}}>Update Saving Product Interest Rates</button>
+</div> 
+     {OpenModal && <S_Modal closeModal={setOpenModal}/>}
+     <hr /></div>);
 }
 export default bank_admin;

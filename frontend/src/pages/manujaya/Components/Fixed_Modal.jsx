@@ -1,12 +1,12 @@
 import React from 'react'
 import './components.css'
-function Modal({closeModal}) {
+function F_Modal({closeModal}) {
   return (
     <div className='modalBackground'>
-      Modal
+      
       <div className='modalContainer'>
         <div className='titleCloseBtn'>
-          <button onClick={()=>closeModal(false)}>X</button>
+          <button className='manubtn' onClick={()=>closeModal(false)}>X</button>
         </div>
         <div className='mtitle'>
           <h3>Update the Interest Rates of Fixed Products</h3>
@@ -29,11 +29,11 @@ function Modal({closeModal}) {
         
         <div className='footer'>
         <button type="button" class="btn btn-primary">Update changes</button>
-        <button type="button" class="btn btn-secondary" id='cancelBtn' data-dismiss="modal" onClick={()=>closeModal(false)}>Close</button>
+        <button type="button" className="btn btn-primary" id='cancelBtn' data-dismiss="modal" onClick={()=>closeModal(false)}>Close</button>
         </div>
       </div>
     </div>
   )
 }
 
-export default Modal
+export default F_Modal

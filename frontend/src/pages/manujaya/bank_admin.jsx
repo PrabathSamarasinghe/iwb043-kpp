@@ -8,6 +8,7 @@ import S_Modal from './Components/Saving_Modal';
 import './bank_admin.css';
 import { productData, responsive } from './data';
 import { useState } from 'react';
+import SysAd_dashboard from '../geesan/sysAd_dashboard';
 function bank_admin(){
     const[OpenModal,setOpenModal]=useState(false);
      const product= productData.map(item=> (<Product name={item.name} number_of_invesments={item.number_of_invesments} discription={item.discription} />));

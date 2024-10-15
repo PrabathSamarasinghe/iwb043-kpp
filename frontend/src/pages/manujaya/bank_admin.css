@@ -1,8 +1,25 @@
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  
+.msignupdiv{
+    width: 80vh;
+    height: 100%;
+    background-color: rgb(14, 115, 177);
+    padding: 15px;
+    font-family: Cambria Math;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    left: 30%;
+    transform: translateY(2%);
+}
+.login{
+    background:rgb(14, 115, 177);
+}
+.mcenter{
+    display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  height: 10vh; 
+}
+.mopen{
+    justify-content: center; /* Centers horizontally */
+  align-items: center;
+}

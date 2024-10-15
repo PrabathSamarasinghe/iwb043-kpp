@@ -5,10 +5,10 @@ const admin_dash = () => {
     <main>
         <div className='side'>
             <div className='sside'>
-                <h1>Bank Request</h1>
+                <h1 className='topic'>Bank Request</h1>
             </div>
             <div className='sside'>
-                <h1>User Request</h1>    
+                <h1 className='topic'>User Request</h1>    
             </div>
         </div>
     </main>

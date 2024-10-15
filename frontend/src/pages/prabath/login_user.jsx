@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './login.css'
+import './login_user.css'
 import 'boxicons'
 import { Link, useNavigate } from 'react-router-dom';
-import axiosInstance from '../../auth';
+import axiosInstance from '../auth';
 const login_user = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -28,10 +28,7 @@ const login_user = () => {
     <>
       <main>
       <div className='login'>
-      <div className='headimg'>
-      <i className='bx bxs-user-circle'></i>
-      </div>
-        
+        <i className='bx bxs-user-circle'></i>
         <h3 className='heading'>USER LOGIN</h3>
         
         <form onSubmit={submit}>

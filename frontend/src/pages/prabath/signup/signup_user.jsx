@@ -5,7 +5,9 @@ const signup_user = () => {
   return (
     <main>
       <div className='signupdiv'>
-      <i class='bx bxs-user' ></i>
+        <div className='headimg'>
+        <i class='bx bxs-user' ></i>
+        </div>
         <h3 className='heading'>USER SIGNUP</h3>
         <form className="needs-validation" noValidate>
           <div className="form-row">
@@ -94,6 +96,24 @@ const signup_user = () => {
             </div>
           </div>
 
+          <div className="form-row">
+            <div className="col-md-6 mb-3">
+                <label htmlFor="validationCustom06">Password</label>
+                <input type="password" className="form-control" id="validationCustom06" placeholder="password" required />
+                <div className="invalid-feedback">
+                  Please provide a valid password.
+                </div>
+            </div>
+
+            <div className="col-md-6 mb-3">
+                <label htmlFor="validationCustom06">Re enter password</label>
+                <input type="password" className="form-control" id="validationCustom06" placeholder="Re enter password" required />
+                <div className="invalid-feedback">
+                  These two are not matching.
+                </div>
+            </div>
+          </div>
+          
           <div className="form-row">
           <div className="col-md-6 mb-3">
               <label htmlFor="validationCustom06">Phone number</label>

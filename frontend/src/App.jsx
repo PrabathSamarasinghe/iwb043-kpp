@@ -11,10 +11,10 @@ import Kaveeshapage_1 from './pages/kaveesha/page_1';
 import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
 import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
-import SignupUser from './pages/prabath/signup/signup_user';
-import SignupBank from './pages/prabath/signup/signup_bank';
-
-//import logo from './assets/KPP_bbg_medium.png';
+import Signup from './pages/prabath/signup/signup_user';
+import Login_sys_admin from './pages/geesan/login_sysAd';
+import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
+// import UserDashboard from './pages/prabath/user_dashboard';
 
 const App = () => {
   return (
@@ -38,15 +38,11 @@ const App = () => {
           <Route path="/prabath/login_user" element={<Login_user />} />
           <Route path="/prabath/login_bank" element={<Login_bank />} />
           <Route path="/prabath/login_admin" element={<Login_admin />} />
-          <Route path='/prabath/signup_user' element={<SignupUser />} />
-          <Route path='/prabath/signup_bank' element={<SignupBank />} />
-
-
+          <Route path='/prabath/signup_user' element={<Signup />} />
+          {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
           <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
-          <Route path="/manujaya/bank_admin_login" element={<Manupage_2 />} />
-          <Route path="/manujaya/bank_admin_signup" element={<Manupage_3 />} />
           <Route path='/Help' element = {<Help />} />
 
         </Routes>

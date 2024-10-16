@@ -48,4 +48,10 @@ export const responsive = {
     number_of_invesments:50,
     discription :'this bank is.............'
 
+  },{
+    id:6,
+    name:'Bank 6',
+    number_of_invesments:100,
+    discription :'this bank is.............'
+
   }]

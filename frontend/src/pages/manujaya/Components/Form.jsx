@@ -14,7 +14,7 @@ function Form(){
     return(
 <form className="form-inline">
   
-  <div className="enter">
+  <div className="menter">
   <label htmlFor="userId">User ID:</label>
     <input type="text"
           id="userId"
@@ -27,7 +27,7 @@ function Form(){
           pattern="[A-Za-z0-9]{6,12}"
           />
   </div>
-  <button  type="submit" className="btn">Get User Info</button>
+ <div><button  type="submit" className="mmmmbtn">Get User Info</button></div> 
 </form>
     );
 }

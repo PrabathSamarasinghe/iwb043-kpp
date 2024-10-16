@@ -37,7 +37,7 @@ const login_user = () => {
         <form onSubmit={submit}>
           <div className="form-group">
             <i className='bx bxs-user'></i>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='email' value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='email' value={username} onChange={(e) => setUsername(e.target.value)}/>
           </div>
           <div className="form-group">
             <i className='bx bxs-lock-alt'></i>

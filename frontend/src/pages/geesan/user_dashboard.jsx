@@ -25,7 +25,7 @@ const Dashboard = () => {
             console.log(response.data);
         }
         catch{
-            navigate("/geesan/login_user");
+            navigate("/prabath/login_user");
         }
     }
     init();

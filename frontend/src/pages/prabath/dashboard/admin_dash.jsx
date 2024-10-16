@@ -6,7 +6,7 @@ const admin_dash = () => {
     <main>
         <div className='side'>
             <div className='stside'>
-              <h2 className='topic'>Bank Request</h2>
+              <h2 className='topic'>Bank Admin Request</h2>
                 <div className='sside'>
                     <Card />
                     <Card />

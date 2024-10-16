@@ -82,8 +82,8 @@ const signup_bank = () => {
             </div>
 
             <div className="col-md-6 mb-3">
-                <label htmlFor="validationCustom06">confirm email</label>
-                <input type="email" className="form-control" id="validationCustom06" placeholder="confirm email" required />
+                <label htmlFor="validationCustom06">username</label>
+                <input type="text" className="form-control" id="validationCustom06" placeholder="username" required />
                 <div className="invalid-feedback">
                   Please provide a valid ID.
                 </div>
@@ -132,13 +132,6 @@ const signup_bank = () => {
             <div className="invalid-feedback">Please confirm your details.</div>
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="validationTextarea">Your Requirements</label>
-            <textarea className="form-control is-invalid" id="validationTextarea" placeholder="What benefits are you looking for?" required></textarea>
-            <div className="invalid-feedback">
-              Please provide your requirements.
-            </div>
-          </div>
 
           <button className="btn btn-primary" type="submit">Submit Form</button>
         </form>

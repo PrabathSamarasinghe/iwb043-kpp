@@ -17,6 +17,7 @@ import Login_sys_admin from './pages/geesan/login_sysAd';
 import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';
 import AdminDash from './pages/prabath/dashboard/admin_dash';
+import AboutUs from './pages/kaveesha/Pages/AboutUs';
 
 const App = () => {
   return (
@@ -34,8 +35,9 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path='/' element = {<InvesmentHome />} />
-          <Route path="/contactus" element={<Kaveeshapage_1 />} />
-          <Route path="/aboutus" element={<Kaveeshapage_1 />} />
+          <Route path='/help' element = {<Help />} />
+          <Route path="/aboutus" element={<AboutUs/>} />
+
 
           <Route path="/prabath/login_user" element={<Login_user />} />
           <Route path="/prabath/login_bank" element={<Login_bank />} />
@@ -47,7 +49,7 @@ const App = () => {
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
           <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
-          <Route path='/Help' element = {<Help />} />
+          
 
         </Routes>
       </BrowserRouter>

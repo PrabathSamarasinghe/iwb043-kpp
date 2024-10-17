@@ -11,7 +11,7 @@ export default function Navbar() {
             </div>
             <ul className="nav_links">
                 <li><Link to = "/"> Home </Link></li>
-                <li><a href="#">About Us</a></li>
+                <li><Link to = "AboutUs">About Us</Link></li>
                 <li><Link to = "Help">Help</Link></li>
         
             </ul>

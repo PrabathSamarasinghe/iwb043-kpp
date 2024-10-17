@@ -13,15 +13,18 @@
     height: 30em;
     
 }
+
 .topic{
     background-color:  #304d6b;
     color: white;
     text-align: center;
 }
 .sside{
+
     background-color:rgb(14, 115, 177);
     overflow-y: inherit;
     overflow-x: hidden;
+
     height: 30em;
     padding: 10px;
 }

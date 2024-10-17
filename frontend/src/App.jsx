@@ -6,6 +6,7 @@ import Login_admin from './pages/prabath/login/login_admin';
 import Manupage_1 from './pages/manujaya/bank_admin';
 import Manupage_2 from './pages/manujaya/bank_admin_login';
 import Manupage_3 from './pages/manujaya/bank_admin_signup';
+import Manupage_4 from './pages/manujaya/user_info';
 import Dashboard from './pages/geesan/user_dashboard';
 import Kaveeshapage_1 from './pages/kaveesha/page_1';
 import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
@@ -18,6 +19,10 @@ import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';
 import AdminDash from './pages/prabath/dashboard/admin_dash';
 
+
+import AboutUs from './pages/kaveesha/Pages/AboutUs';
+
+
 const App = () => {
   return (
     
@@ -26,8 +31,9 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path='/' element = {<InvesmentHome />} />
-          <Route path="/contactus" element={<Kaveeshapage_1 />} />
-          <Route path="/aboutus" element={<Kaveeshapage_1 />} />
+          <Route path='/help' element = {<Help />} />
+          <Route path="/aboutus" element={<AboutUs/>} />
+
 
           <Route path="/prabath/login_user" element={<Login_user />} />
           <Route path="/prabath/login_bank" element={<Login_bank />} />
@@ -39,7 +45,12 @@ const App = () => {
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
           <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
+
+          <Route path="/manujaya/user_info" element={<Manupage_4 />} />
           <Route path='/Help' element = {<Help />} />
+
+          
+
 
         </Routes>
       </BrowserRouter>

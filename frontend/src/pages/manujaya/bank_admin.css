@@ -32,7 +32,7 @@
   background-color: rgb(3, 89, 23);
   color: white;
   cursor: pointer;
-  right: -600px;
+  right: -500px;
 }
 .mmmbtn{
   position: relative;
@@ -43,6 +43,21 @@
   background-color: rgb(3, 89, 23);
   color: white;
   cursor: pointer;
-  right: -600px;
+  right: -500px;
 
 }
+
+.bank_admin{
+  width: 80%;
+  position: relative;
+  left: 10%;  
+  
+}
+.react-multi-carousel-arrow {
+  width: 1px;   /* Adjust width */
+  height: 25px;  /* Adjust height */
+  font-size: 6px; /* Adjust font size of the arrow icon */
+  padding: 5px;  /* Adjust padding */
+  border-radius: 50%; /* Optional: make the button circular */
+}
+

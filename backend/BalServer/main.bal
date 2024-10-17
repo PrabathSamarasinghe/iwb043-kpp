@@ -7,7 +7,7 @@ import ballerina/jwt;
 import ballerina/crypto;
 
 // Create a MySQL client
-mysql:Client dbClient = check new ("localhost", "root", "123#sgm", 
+mysql:Client dbClient = check new ("localhost", "KPP_user", "pass123", 
                               "kpp", 3306);
 
 final string secretKey = "KPP_secret";
@@ -89,7 +89,10 @@ service / on new http:Listener(9090) {
         io:print(decRes[1].sub);
         return response;
     }
-}
+    //methanin pahala gahanna
+
+} 
+
 
 function init(){
     io:println("Server running on port 9090"); 

@@ -11,6 +11,7 @@ import { useState } from 'react';
 import SysAd_dashboard from '../geesan/sysAd_dashboard';
 function bank_admin(){
     const[OpenModal,setOpenModal]=useState(false);
+    const[sOpenModal,ssetOpenModal]=useState(false);
      const product= productData.map(item=> (<Product name={item.name} number_of_invesments={item.number_of_invesments} discription={item.discription} />));
     return(
     <main>
@@ -28,9 +29,9 @@ function bank_admin(){
      {OpenModal && <F_Modal closeModal={setOpenModal}/>}
      <hr />
      <div className='mmopen'>
-<button className="mmmbtn" onClick={()=>{setOpenModal(true);}}>Update Saving Product Interest Rates</button>
+<button className="mmmbtn" onClick={()=>{ssetOpenModal(true);}}>Update Saving Product Interest Rates</button>
 </div> 
-     {OpenModal && <S_Modal closeModal={setOpenModal}/>}
+     {sOpenModal && <S_Modal scloseModal={ssetOpenModal}/>}
      <hr />
      </div>
     </main>

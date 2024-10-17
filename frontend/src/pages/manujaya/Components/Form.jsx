@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import './components.css';
+//import { useNavigate } from 'react-router-dom';
+
 function Form(){
-  const [userId, setUserId] = useState('');
+ // const handleSubmit = (event) => {
+   // event.preventDefault();
+    // Navigate to user_info page
+    //navigate('./user_info'); // Replace with your actual route
+//};
 
-  const handleInputChange = (event) => {
-    setUserId(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(`User ID submitted: ${userId}`);
-  };
     return(
 <form className="form-inline">
   
@@ -20,14 +18,14 @@ function Form(){
           id="userId"
           name="userId"
           className="form-control"
-          value={userId}
-          onChange={handleInputChange}
+          //value={userId}
+         // onChange={handleInputChange}
           placeholder="Enter your User ID"
           required
           pattern="[A-Za-z0-9]{6,12}"
           />
   </div>
- <div><button  type="submit" className="mmmmbtn">Get User Info</button></div> 
+ <div><button  type="submit" className="mmmmbtn" >Get User Info</button></div> 
 </form>
     );
 }

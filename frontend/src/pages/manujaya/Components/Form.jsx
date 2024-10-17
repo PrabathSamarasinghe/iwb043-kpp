@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './components.css';
 //import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 function Form(){
  // const handleSubmit = (event) => {
    // event.preventDefault();
     // Navigate to user_info page
     //navigate('./user_info'); // Replace with your actual route
 //};
-
+const navigate=useNavigate();
     return(
 <form className="form-inline">
   
@@ -25,7 +25,7 @@ function Form(){
           pattern="[A-Za-z0-9]{6,12}"
           />
   </div>
- <div><button  type="submit" className="mmmmbtn" >Get User Info</button></div> 
+ <div><button  type="submit" className="mmmmbtn" onClick={()=>navigate('/manujaya/user_info')}>Get User Info</button></div> 
 </form>
     );
 }

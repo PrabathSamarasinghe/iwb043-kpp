@@ -20,7 +20,7 @@ final string secretKey = "KPP_secret";
 
 service / on new http:Listener(9090) {
     //For System Admins:
-    resource function post CheckSysAdmin(Cred payl) returns string|http:NotFound|http:ClientError|jwt:Error {
+    resource function post CheckSysAdmin(Cred payl) returns http:Response|http:NotFound|error{
         //Returns a token for system admin credentials
         string hashedPass = crypto:hashSha256(payl.password.toBytes()).toBase16();
         sql:ParameterizedQuery qerry = `Select * FROM system_admins WHERE username = ${payl.username} 
@@ -38,8 +38,17 @@ service / on new http:Listener(9090) {
             }
         };
         string jwt = check jwt:issue(issuerConfig);
-        return jwt;
+        http:Cookie cookie = new("AuthToken",jwt,maxAge = 3600,httpOnly = true);
+
+        // Create the HTTP response
+        http:Response res = new;
+        res.setPayload(jwt);
+
+        // Add the cookie to the response
+        res.addCookie(cookie);
+        return res;
         }
+
         return http:NOT_FOUND;
     }
     resource function get SysAdmin/name(http:Request req) returns string?|error{
@@ -59,13 +68,18 @@ service / on new http:Listener(9090) {
     }
 
     //For Users:
-    resource function post CheckUser(Cred payl) returns string|http:NotFound|http:ClientError|jwt:Error{
-        string hashedPass = crypto:hashSha256(payl.password.toBytes()).toBase16();
-        sql:ParameterizedQuery qerry = `Select * FROM users WHERE username = ${payl.username} 
-        and password = ${hashedPass}`;
-        Cred|sql:Error response = dbClient->queryRow(qerry);
-        if(response is Cred){
-            jwt:IssuerConfig issuerConfig = {
+    resource function post CheckUser(Cred payl) returns http:Response|http:NotFound|error {
+    // Hash the password
+    string hashedPass = crypto:hashSha256(payl.password.toBytes()).toBase16();
+    
+    // Query the users table
+    sql:ParameterizedQuery qerry = `SELECT * FROM users WHERE username = ${payl.username} 
+                                    AND password = ${hashedPass}`;
+    Cred|sql:Error response = dbClient->queryRow(qerry);
+    io:print(response);
+    if (response is Cred) {
+        // Create the JWT token
+        jwt:IssuerConfig issuerConfig = {
             username: response.username,
             issuer: "KPP",
             audience: "users",
@@ -73,16 +87,31 @@ service / on new http:Listener(9090) {
             signatureConfig: {
                 config: secretKey,
                 algorithm: jwt:HS256
-            }};
+            }
+        };
         string jwt = check jwt:issue(issuerConfig);
-        return jwt;
-        }
-        return http:NOT_FOUND;
+        // Create a cookie to store the JWT token
+        http:Cookie cookie = new("AuthToken", jwt, maxAge = 3600, httpOnly = true);
+
+        // Create the HTTP response
+        http:Response res = new;
+        res.setPayload(jwt);
+
+        // Add the cookie to the response
+        res.addCookie(cookie);
+        
+        // Return the response with the cookie
+        return res;
     }
+    
+    // If the credentials are invalid, return 404 Not Found
+    return http:NOT_FOUND;
+}
     resource function get User/name(http:Request req) returns string?|error {
     // Get user name
     // Authorization header tag must have a valid token
-    string jwt = check req.getHeader("Authorization");
+    string authHeader = check req.getHeader("Authorization");
+    string jwt = authHeader.substring(7);
     var decRes = check jwt:decode(jwt);
     string? username = decRes[1].sub;
     string|string[]? audience = decRes[1].aud;
@@ -99,7 +128,8 @@ service / on new http:Listener(9090) {
     resource function get User/verified(http:Request req) returns boolean?|error{
         //Get system admin name
         //Authorization header tag must have a valid token
-        string jwt = check req.getHeader("Authorization");
+        string authHeader = check req.getHeader("Authorization");
+        string jwt = authHeader.substring(7);
         var decRes = check jwt:decode(jwt);
         string? username = decRes[1].sub;
         string|string[]? audience = decRes[1].aud;
@@ -112,9 +142,10 @@ service / on new http:Listener(9090) {
         return response;
     }
     resource function get User/all(http:Request req) returns RegUser?|error {
-    // Get user name
+    // Get user all fields
     // Authorization header tag must have a valid token
-    string jwt = check req.getHeader("Authorization");
+    string authHeader = check req.getHeader("Authorization");
+    string jwt = authHeader.substring(7);
     var decRes = check jwt:decode(jwt);
     string? username = decRes[1].sub;
     string|string[]? audience = decRes[1].aud;
@@ -130,7 +161,7 @@ service / on new http:Listener(9090) {
     }
 
     //For Bank Admins:
-    resource function post CheckBankAdmin(Cred payl) returns string|http:NotFound|http:ClientError|jwt:Error {
+    resource function post CheckBankAdmin(Cred payl) returns http:NotFound|error|http:Response {
     // Returns a token for bank admin credentials
     string hashedPass = crypto:hashSha256(payl.password.toBytes()).toBase16();
     sql:ParameterizedQuery query = `SELECT * FROM bank_admins WHERE username = ${payl.username} 
@@ -149,7 +180,18 @@ service / on new http:Listener(9090) {
             }
         };
         string jwt = check jwt:issue(issuerConfig);
-        return jwt;
+        // Create a cookie to store the JWT token
+        http:Cookie cookie = new("AuthToken", jwt, maxAge = 3600, httpOnly = true);
+
+        // Create the HTTP response
+        http:Response res = new;
+        res.setPayload(jwt);
+
+        // Add the cookie to the response
+        res.addCookie(cookie);
+        
+        // Return the response with the cookie
+        return res;
     }
     
     return http:NOT_FOUND;
@@ -157,7 +199,8 @@ service / on new http:Listener(9090) {
     resource function get BankAdmin/bankID(http:Request req) returns int?|error {
         // Get user name
         // Authorization header tag must have a valid token
-        string jwt = check req.getHeader("Authorization");
+        string authHeader = check req.getHeader("Authorization");
+        string jwt = authHeader.substring(7);
         var decRes = check jwt:decode(jwt);
         string? username = decRes[1].sub;
         string|string[]? audience = decRes[1].aud;
@@ -170,6 +213,49 @@ service / on new http:Listener(9090) {
         int response = check dbClient->queryRow(query);
         io:print(decRes[1].sub);
         return response;
+    }
+    resource function get BankAdmin/all(http:Request req) returns BankAdmin?|error {
+    // Get all fields from BankAdmin
+    // Authorization header tag must have a valid token
+    string authHeader = check req.getHeader("Authorization");
+    string jwt = authHeader.substring(7);
+    var decRes = check jwt:decode(jwt);
+    string? username = decRes[1].sub;
+    string|string[]? audience = decRes[1].aud;
+
+    if (audience != "BankAdmins") {
+        return error("Unauthorized request");
+    }
+
+    sql:ParameterizedQuery query = `SELECT * FROM bank_admins WHERE username = ${username}`;
+    BankAdmin response = check dbClient->queryRow(query);
+    io:print(decRes[1].sub);
+    return response;
+    }
+    resource function post User/FixedInvestRequest(http:Request req) returns string|http:NotFound|http:HeaderNotFoundError|http:ClientError|jwt:Error {
+    // Creates a new deposite without confirmation
+    // Payload should have the F_ID
+    // Returns the f_dep_ID of the new deposite
+    string authHeader = check req.getHeader("Authorization");
+    string jwt = authHeader.substring(7);
+    var decRes = check jwt:decode(jwt);
+    string? username = decRes[1].sub;
+    string|string[]? audience = decRes[1].aud;
+
+    if (audience != "users") {
+        return error("Unauthorized request");
+    }
+    if(username is string){
+        return username;
+    }
+    // sql:ParameterizedQuery query = `${username}`;
+    // int|sql:Error response = dbClient->queryRow(query);
+    
+    // if (response is int) {
+    //     return response;
+    // }
+    
+    return http:NOT_FOUND;
     }
 }
 

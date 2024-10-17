@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './login.css'
 import 'boxicons'
 import { Link, useNavigate } from 'react-router-dom';
-import axiosInstance from '../../auth';
+import axios from 'axios';
 const login_admin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -12,12 +12,11 @@ const login_admin = () => {
     //post the username password to the backend
     
     const payload = {username : username, password : password};
-    const url = "/CheckUser";
+    const url = "http://localhost:9090/CheckSysAdmin";
     try {
-      const response = await axiosInstance.post(url, payload); // Use the custom Axios instance
-      console.log('Response data:', response.data);
-      localStorage.setItem('authToken', response.data);// Handle the response data
-      navigate("/geesan/user_dashboard");
+      const response = await axios.post(url, payload,{withCredentials:true}); // Use the custom Axios instance
+      console.log('Response data:', response);
+      navigate("/prabath/admin_dash");
       // Handle the response (e.g., show a success message)
     } catch (error) {
       alert("Invalid username or password");

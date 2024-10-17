@@ -1,4 +1,3 @@
-# Token issues:
     POST request payload should contain a valid username and a password
 ### CheckSysAdmin   - returns System Admin token
 ### CheckUser       - returns User token
@@ -8,31 +7,15 @@
     Get request "Authorization"  header should contain a valid token
 ### SysAdmin/name   - returns System Admin name
 ### User/name       - returns User full name
-### User/verified   - returns if user is registered
+### User/verified   - returns if user is verified
 ### User/all        - returns all fields of reg_user entry
 ### BankAdmin/bankID    - returns BankID of the Admin
+### BankAdmin/verified  - returns if bank admin is verified
 ### BankAdmin/all   - returns all fields except password
 # To be added:
     
-
-    # Direct Data inserts with token:
-        POST request "Authorization"  header should contain a valid token
-    ### User/FixedInvestRequest
-    ### SavingsInvestRequest
-    # Direct Data deletions with token:
-        DELETE request "Authorization"  header should contain a valid token
     ### InvestRemove
-
-    # Public data reads:
     ### AllBankStats
-    # Bank admin only operations:
-    ## data reads:
-    ## data inserts:
-    ## data updates:
-    # System admin only operations:
-    ## data reads:
-    ## data inserts:
-    ## data updates:
 
 
 ### Userdata -> db
@@ -42,3 +25,25 @@
 ### confirmedDeposites <- db
 ### historyDeposites   <- db
 ### 
+
+
+
+# CheckLogged.
+# Logout. 
+
+
+## User
+# Login .
+# Signup -- procedure required
+### User/FixedInvestRequest -- pr
+### User/SavingsInvestRequest -- pr
+### User/RemoveFixedInvestRequest -- pr
+### User/RemoveSavingsInvestRequest -- pr
+
+
+## SysAdmin 
+# Login .
+
+## BankAdmin
+# Login .
+# Signup -- procedure required

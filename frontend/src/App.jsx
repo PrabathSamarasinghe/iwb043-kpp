@@ -13,30 +13,20 @@ import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
 import Signup from './pages/prabath/signup/signup_user';
 import SignupBank from './pages/prabath/signup/signup_bank';
-import Login_sys_admin from './pages/geesan/login_sysAd';
-import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';
 import AdminDash from './pages/prabath/dashboard/admin_dash';
 import AboutUs from './pages/kaveesha/Pages/AboutUs';
 
 const App = () => {
   return (
-    
+
     <div>
       <BrowserRouter>
-      {/*<header>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/aboutus'>About us</Link>
-          <Link to='/contactus'>Contact us</Link>
-        </nav>
-        <img src={logo} className='mainLogo'></img>
-  </header>*/}
         <Navbar />
         <Routes>
-          <Route path='/' element = {<InvesmentHome />} />
-          <Route path='/help' element = {<Help />} />
-          <Route path="/aboutus" element={<AboutUs/>} />
+          <Route path='/' element={<InvesmentHome />} />
+          <Route path='/help' element={<Help />} />
+          <Route path="/aboutus" element={<AboutUs />} />
 
 
           <Route path="/prabath/login_user" element={<Login_user />} />
@@ -47,15 +37,15 @@ const App = () => {
           <Route path='/prabath/admin_dash' element={<AdminDash />} />
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
-          
+
           <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
-          
+
 
         </Routes>
       </BrowserRouter>
 
       <footer className="footer">
-      <p>&copy; 2024 KPP. All rights reserved.</p>
+        <p>&copy; 2024 KPP. All rights reserved.</p>
       </footer>
     </div>
   )

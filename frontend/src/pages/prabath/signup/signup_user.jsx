@@ -28,7 +28,7 @@ const SignupUser = () => {
     event.preventDefault();
     console.log('Form Data Submitted:', formdata);
   };
-
+ 
   return (
     <main>
       <div className='signupdiv'>

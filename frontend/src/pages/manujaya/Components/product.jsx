@@ -5,11 +5,11 @@ export default function product(props) {
   
   return (
     
-    <div className='card'>
-            <img className='product--image' src={bank_photo} alt="Bank Photo" />
+    <div className='mcard'>
+            <img className='mproduct--image' src={bank_photo} alt="Bank Photo" />
             <h2 className='mname'>{props.name}</h2>
-            <h4 className='head'>Number of invesments</h4>
-            <p className='no_investments'>{props.number_of_invesments}</p>
+            <h4 className='mhead'>Number of invesments</h4>
+            <p className='mno_investments'>{props.number_of_invesments}</p>
             <p className='mdiscription'>{props.discription}</p>
         </div>
   );

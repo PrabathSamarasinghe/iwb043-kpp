@@ -23,8 +23,8 @@ function F_Modal({closeModal}) {
     <div className='modalBackground'>
       
       <div className='modalContainer'>
-        <div className='titleCloseBtn'>
-          <button className='manubtn' onClick={()=>closeModal(false)}>X</button>
+        <div className='m_titleCloseBtn'>
+          <button className='manu_btn' onClick={()=>closeModal(false)}>X</button>
         </div>
         <div className='mtitle'>
           <h3>Update the Interest Rates of Fixed Products</h3>
@@ -60,8 +60,8 @@ function F_Modal({closeModal}) {
   </div>
         
         <div className='footer'>
-        <button type="button" class="btn btn-primary" onClick={handleSubmit}>Update changes</button>
-        <button type="button" className="btn btn-primary" id='cancelBtn' data-dismiss="modal" onClick={()=>closeModal(false)}>Close</button>
+        <button type="button" className="m_btn btn-primary" onClick={handleSubmit}>Update changes</button>
+        <button type="button" className="m_btn btn-primary" id='cancelBtn' data-dismiss="modal" onClick={()=>closeModal(false)}>Close</button>
         </div>
       </div>
     </div>

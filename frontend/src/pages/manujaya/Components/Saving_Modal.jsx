@@ -20,8 +20,8 @@ function S_Modal({scloseModal}) {
     <div className='modalBackground'>
       
       <div className='modalContainer'>
-        <div className='titleCloseBtn'>
-          <button className='manubtn' onClick={()=>scloseModal(false)}>X</button>
+        <div className='mm_titleCloseBtn'>
+          <button className='manu__btn' onClick={()=>scloseModal(false)}>X</button>
         </div>
         <div className='mtitle'>
           <h3>Update the Interest Rates of Saving Products</h3>
@@ -55,8 +55,8 @@ function S_Modal({scloseModal}) {
   </div>
         
         <div className='footer'>
-        <button type="button" class="btn btn-primary"onClick={s_handleSubmit}>Update changes</button>
-        <button type="button" className="btn btn-primary" id='cancelBtn' data-dismiss="modal" onClick={()=>scloseModal(false)}>Close</button>
+        <button type="button" class="m_btn btn-primary"onClick={s_handleSubmit}>Update changes</button>
+        <button type="button" className="m_btn btn-primary" id='cancelBtn' data-dismiss="modal" onClick={()=>scloseModal(false)}>Close</button>
         </div>
       </div>
     </div>

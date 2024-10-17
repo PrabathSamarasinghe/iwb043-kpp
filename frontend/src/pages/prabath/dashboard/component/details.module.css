@@ -1,0 +1,70 @@
+.boxele{
+    background-color: rgb(114, 205, 236);
+    width: 104%;
+    height: 110%;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    
+}
+.xbtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.heading {
+    background-color: #304d6b;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+    height: 35px;
+}
+
+.udetails{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.udetailsparts{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(14, 115, 177);
+}
+.btnbox2{
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    position: relative;
+    transform: translateY(-90px);
+    left: 610px;
+}
+.accbtn{
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 15%;
+}
+
+.rejbtn{
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 15%;
+}
+

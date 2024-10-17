@@ -28,14 +28,6 @@ const App = () => {
     
     <div>
       <BrowserRouter>
-      {/*<header>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/aboutus'>About us</Link>
-          <Link to='/contactus'>Contact us</Link>
-        </nav>
-        <img src={logo} className='mainLogo'></img>
-  </header>*/}
         <Navbar />
         <Routes>
           <Route path='/' element = {<InvesmentHome />} />

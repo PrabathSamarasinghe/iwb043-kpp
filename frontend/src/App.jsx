@@ -6,6 +6,7 @@ import Login_admin from './pages/prabath/login/login_admin';
 import Manupage_1 from './pages/manujaya/bank_admin';
 import Manupage_2 from './pages/manujaya/bank_admin_login';
 import Manupage_3 from './pages/manujaya/bank_admin_signup';
+import Manupage_4 from './pages/manujaya/user_info';
 import Dashboard from './pages/geesan/user_dashboard';
 import Kaveeshapage_1 from './pages/kaveesha/page_1';
 import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
@@ -17,7 +18,10 @@ import Login_sys_admin from './pages/geesan/login_sysAd';
 import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';
 import AdminDash from './pages/prabath/dashboard/admin_dash';
+<<<<<<< HEAD
+=======
 import AboutUs from './pages/kaveesha/Pages/AboutUs';
+>>>>>>> 8bd1c367bf9d521991f2847d81b9abec62985663
 
 const App = () => {
   return (
@@ -49,7 +53,12 @@ const App = () => {
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
           <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
+<<<<<<< HEAD
+          <Route path="/manujaya/user_info" element={<Manupage_4 />} />
+          <Route path='/Help' element = {<Help />} />
+=======
           
+>>>>>>> 8bd1c367bf9d521991f2847d81b9abec62985663
 
         </Routes>
       </BrowserRouter>

@@ -1,6 +1,8 @@
 drop database kpp;
 create database kpp;
 use kpp;
+create user "KPP_user @ localhost" identified by "pass123";
+grant all privileges on kpp to "KPP_user @ localhost";
 -- End user credentials
 CREATE TABLE users (
     username VARCHAR(20) NOT NULL,

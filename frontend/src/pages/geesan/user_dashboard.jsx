@@ -28,7 +28,7 @@ const Dashboard = () => {
   }, [navigate]); // Add navigate as a dependency
 
   return (
-    <div>
+    <div className='Udash'>
       <Ribbon />
       {verified ? <InvestBoard /> : <NotVerified />}
     </div>

@@ -2,14 +2,14 @@
     /* background-color: #f8f9fa; */
     display: flex;
     gap: 5px;
-    width: 65%;
+    width: 60%;
     position: relative;
-    left: 17%;
+    left: 19%;
     top: 2em;
 }
 
 .stside{
-    width: 650px;
+    width: 600px;
     height: 30em;
     
 }
@@ -20,11 +20,10 @@
     text-align: center;
 }
 .sside{
-    background-color: rgb(114, 205, 236);
-    overflow-y: auto;
 
-    width: 650px;
-    height: 31em;
+    background-color:rgb(14, 115, 177);
+    overflow-y: inherit;
+    overflow-x: hidden;
 
     height: 30em;
     padding: 10px;

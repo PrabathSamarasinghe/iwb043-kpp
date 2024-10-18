@@ -7,6 +7,7 @@ import ballerinax/mysql;
 import ballerinax/mysql.driver as _;
 
 // Create a MySQL client
+
 mysql:Client dbClient = check new ("localhost", "KPP_user", "pass123",
     "kpp", 3306
 );
@@ -40,6 +41,7 @@ service / on new http:Listener(9090) {
                 }
             };
             string jwt = check jwt:issue(issuerConfig);
+
             http:Cookie cookie = new ("AuthToken", jwt, maxAge = 3600, httpOnly = true);
 
             // Create the HTTP response
@@ -49,10 +51,12 @@ service / on new http:Listener(9090) {
             // Add the cookie to the response
             res.addCookie(cookie);
             return res;
+
         }
 
         return http:NOT_FOUND;
     }
+
 
     resource function get SysAdmin/name(http:Request req) returns string|http:NotFound|error {
         // Get system admin name
@@ -73,6 +77,7 @@ service / on new http:Listener(9090) {
         string|string[]? audience = decRes[1].aud;
 
         // Ensure the request is coming from an admin token
+
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
@@ -83,6 +88,7 @@ service / on new http:Listener(9090) {
         io:print(decRes[1].sub); // Optional: for debugging purposes
         return response;
     }
+
 
     //For Users:
     resource function post SignupUser(NewUser payl) returns http:Created|error {
@@ -109,6 +115,7 @@ service / on new http:Listener(9090) {
 
     resource function post CheckUser(Cred payl) returns http:Response|http:NotFound|error {
         // Hash the password
+
         string hashedPass = crypto:hashSha256(payl.password.toBytes()).toBase16();
 
         // Query the users table
@@ -116,7 +123,8 @@ service / on new http:Listener(9090) {
                                     AND password = ${hashedPass}`;
         Cred|sql:Error response = dbClient->queryRow(qerry);
         if (response is Cred) {
-            // Create the JWT token
+
+
             jwt:IssuerConfig issuerConfig = {
                 username: response.username,
                 issuer: "KPP",
@@ -128,6 +136,7 @@ service / on new http:Listener(9090) {
                 }
             };
             string jwt = check jwt:issue(issuerConfig);
+
             // Create a cookie to store the JWT token
             http:Cookie cookie = new ("AuthToken", jwt, maxAge = 3600, httpOnly = true);
 
@@ -141,10 +150,12 @@ service / on new http:Listener(9090) {
 
             // Return the response with the cookie
             return res;
+
         }
         // If the credentials are invalid, return 404 Not Found
         return http:NOT_FOUND;
     }
+
 
     resource function get User/name(http:Request req) returns string|http:NotFound|error {
         // Get user name
@@ -191,6 +202,7 @@ service / on new http:Listener(9090) {
         string? username = decRes[1].sub;
         string|string[]? audience = decRes[1].aud;
 
+
         if (audience != "users") {
             return error("Unauthorized request");
         }
@@ -200,6 +212,7 @@ service / on new http:Listener(9090) {
         io:print(decRes[1].sub);
         return response;
     }
+
 
     resource function get User/unconfirmedFixedDeposites(http:Request req) returns FixedDeposit[]|http:NotFound|error {
         http:Cookie[] cookies = req.getCookies();
@@ -226,6 +239,7 @@ service / on new http:Listener(9090) {
         return from var fd in fds
             select fd;
     }
+
 
     resource function get User/unconfirmedSavingsDeposites(http:Request req) returns SavingsDeposit[]|http:NotFound|error {
         http:Cookie[] cookies = req.getCookies();
@@ -359,6 +373,7 @@ service / on new http:Listener(9090) {
         if (audience != "users") {
             return error("Unauthorized request");
         }
+
 
         sql:ParameterizedQuery query = `CALL savingssearch(${username}, ${amount})`;
         stream<SavingsProduct, sql:Error?> sds = dbClient->query(query);
@@ -643,3 +658,4 @@ service / on new http:Listener(9090) {
 function init() {
     io:println("Server running on port 9090");
 }
+

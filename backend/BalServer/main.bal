@@ -1,14 +1,16 @@
+import ballerina/crypto;
 import ballerina/http;
 import ballerina/io;
+import ballerina/jwt;
+import ballerina/sql;
 import ballerinax/mysql;
 import ballerinax/mysql.driver as _;
-import ballerina/sql;
-import ballerina/jwt;
-import ballerina/crypto;
 
 // Create a MySQL client
-mysql:Client dbClient = check new ("localhost", "KPP_user", "pass123", 
-                              "kpp", 3306);
+// Create a MySQL client
+mysql:Client dbClient = check new ("localhost", "KPP_user", "pass123",
+    "kpp", 3306
+);
 
 final string secretKey = "KPP_secret";
 
@@ -25,29 +27,30 @@ service / on new http:Listener(9090) {
         sql:ParameterizedQuery qerry = `Select * FROM system_admins WHERE username = ${payl.username} 
         and password = ${hashedPass}`;
         SysAdmin|sql:Error response = dbClient->queryRow(qerry);
-        if(response is SysAdmin){
+        if (response is SysAdmin) {
             jwt:IssuerConfig issuerConfig = {
-            username: response.username,
-            issuer: "KPP",
-            audience: "SysAdmins",
-            expTime: 3600,
-            signatureConfig: {
-                config: secretKey,
-                algorithm: jwt:HS256
-            }
-        };
-        string jwt = check jwt:issue(issuerConfig);
-        return jwt;
+                username: response.username,
+                issuer: "KPP",
+                audience: "SysAdmins",
+                expTime: 3600,
+                signatureConfig: {
+                    config: secretKey,
+                    algorithm: jwt:HS256
+                }
+            };
+            string jwt = check jwt:issue(issuerConfig);
+            return jwt;
         }
         return http:NOT_FOUND;
     }
-    resource function get SysAdmin/name(http:Request req) returns string?|error{
+
+    resource function get SysAdmin/name(http:Request req) returns string?|error {
         //Authorization header tag must have a valid token
         string jwt = check req.getHeader("Authorization");
         var decRes = check jwt:decode(jwt);
         string? username = decRes[1].sub;
         string|string[]? audience = decRes[1].aud;
-        if(audience!="SysAdmins"){
+        if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
         sql:ParameterizedQuery qerry = `Select name FROM system_admins WHERE username = ${username}`;
@@ -55,33 +58,36 @@ service / on new http:Listener(9090) {
         io:print(decRes[1].sub);
         return response;
     }
-    resource function post CheckUser(Cred payl) returns string|http:NotFound|http:ClientError|jwt:Error{
+
+    resource function post CheckUser(Cred payl) returns string|http:NotFound|http:ClientError|jwt:Error {
         string hashedPass = crypto:hashSha256(payl.password.toBytes()).toBase16();
         sql:ParameterizedQuery qerry = `Select * FROM users WHERE username = ${payl.username} 
         and password = ${hashedPass}`;
         Cred|sql:Error response = dbClient->queryRow(qerry);
-        if(response is Cred){
+        if (response is Cred) {
             jwt:IssuerConfig issuerConfig = {
-            username: response.username,
-            issuer: "KPP",
-            audience: "users",
-            expTime: 3600,
-            signatureConfig: {
-                config: secretKey,
-                algorithm: jwt:HS256
-            }};
-        string jwt = check jwt:issue(issuerConfig);
-        return jwt;
+                username: response.username,
+                issuer: "KPP",
+                audience: "users",
+                expTime: 3600,
+                signatureConfig: {
+                    config: secretKey,
+                    algorithm: jwt:HS256
+                }
+            };
+            string jwt = check jwt:issue(issuerConfig);
+            return jwt;
         }
         return http:NOT_FOUND;
     }
-    resource function get User/verified(http:Request req) returns boolean?|error{
+
+    resource function get User/verified(http:Request req) returns boolean?|error {
         //Authorization header tag must have a valid token
         string jwt = check req.getHeader("Authorization");
         var decRes = check jwt:decode(jwt);
         string? username = decRes[1].sub;
         string|string[]? audience = decRes[1].aud;
-        if(audience!="users"){
+        if (audience != "users") {
             return error("Unauthorized request");
         }
         sql:ParameterizedQuery qerry = `Select verified FROM reg_users WHERE username = ${username}`;
@@ -89,11 +95,39 @@ service / on new http:Listener(9090) {
         io:print(decRes[1].sub);
         return response;
     }
+
     //methanin pahala gahanna
 
-} 
+    //resource function post bankAdminSignup(http:Caller caller, http:Request req) returns error {
+        // Extract JSON data from the request
+        //json requestData = check req.getJsonPayload();
 
+  
 
-function init(){
-    io:println("Server running on port 9090"); 
+        // SQL query to insert the new bank admin
+        //sql:ParameterizedQuery sqlQuery = `INSERT INTO bank_admins (username,password,bank_ID, branch_name, service_No )
+        //VALUES (${ requestData.username}, ${ requestData.password}, ${requestData.bankId}, ${requestData.branchName}, ${requestData.serviceNo})`;
+        
+
+        // Execute the SQL query
+        //var result = dbClient->execute(sqlQuery, );
+
+        // Handle the result of the SQL query
+        //if (result is mysql:ExecutionResult) {
+            // Prepare a successful response
+            //json responseBody = {message: "Signup successful!"};
+            //check caller->respond(responseBody);
+      //  } else {
+            // Handle any error that occurs during insertion
+           // json errorResponse = {message: "Error during signup: " + result.message};
+            //check caller->respond(errorResponse);
+        //}
+    //}
+
 }
+
+function init() {
+    io:println("Server running on port 9090");
+}
+
+

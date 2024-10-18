@@ -1,18 +1,21 @@
 ### CheckLogged - returns if any user has logged into some ac
-### Logout 
+### Logout      - logs out from the acount
+### AllBankStats -- pr
+
 
 ## User
 ### CheckUser       - returns User cookie
-# Signup -- procedure required
-### User/unconfirmedFixedDeposites -- pr
-### User/unconfirmedSavingsDeposites -- pr
-### User/historyFixedDeposites   -- pr
-### User/historySavingsDeposites   -- pr
-### User/getSuggestions  -- pr
-### User/FixedInvestRequest -- pr
-### User/SavingsInvestRequest -- pr
-### User/RemoveFixedInvestRequest
-### User/RemoveSavingsInvestRequest
+### Signup -- procedure required.
+### User/unconfirmedFixedDeposites -- pr.
+### User/unconfirmedSavingsDeposites -- pr.
+### User/historyFixedDeposites   -- pr.
+### User/historySavingsDeposites   -- pr.
+### User/getFixedSuggestions  -- pr.
+### User/getSavingsSuggestions  -- pr.
+### User/FixedInvestRequest -- pr.
+### User/SavingsInvestRequest -- pr.
+### User/RemoveFixedInvestRequest   -Deletes a given fixedInvest
+### User/RemoveSavingsInvestRequest -Deletes a given SavingsInvest
 ### User/name       - returns User full name
 ### User/verified   - returns if user is verified
 ### User/all        - returns all fields of reg_user entry
@@ -30,8 +33,7 @@
 
 ## BankAdmin
 ### CheckBankAdmin  - returns Bank Admin cookie
-### AllBankStats -- pr
-# Signup -- pr
+### Signup -- pr
 ### updateFixedInterestRate
 ### updateSavingsInterestRate
 ### addFixedInterestRate

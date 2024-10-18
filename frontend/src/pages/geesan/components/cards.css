@@ -13,7 +13,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
   }
-  
+
+  .some_card p{
+    margin: 0px;
+  }
   /* Hover effect to enlarge the card */
   .some_card:hover {
     transform: scale(1.1);
@@ -44,15 +47,16 @@
     background-repeat:no-repeat;
     background-size: cover;
     border-radius: 30px;
-
+    margin-top: 10px;
   }
-  .card_typedef{
+  .some_card p.card_typedef{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: right;
     background-color: #e0efff51;
     border-radius: 60px;
     padding: 0px 10px;
     width: fit-content;
+    margin-top: 20px;
   }
 
   .card_fieldName{

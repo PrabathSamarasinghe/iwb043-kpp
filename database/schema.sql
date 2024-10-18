@@ -14,7 +14,7 @@ CREATE TABLE reg_users (
     username VARCHAR(20) NOT NULL,
     NIC VARCHAR(12) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
-    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    gender ENUM('Male', 'Female') NOT NULL,
     birthday DATE NOT NULL,
     address VARCHAR(255) NOT NULL,
     phone_number VARCHAR(15) NOT NULL,

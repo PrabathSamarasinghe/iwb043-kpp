@@ -8,7 +8,7 @@ import S_Modal from './Components/Saving_Modal';
 import './bank_admin.css';
 import { productData, responsive } from './data';
 import { useState } from 'react';
-//import SysAd_dashboard from '../geesan/sysAd_dashboard';
+
 
 function bank_admin(){
      

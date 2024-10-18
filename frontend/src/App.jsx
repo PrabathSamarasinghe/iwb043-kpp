@@ -14,8 +14,8 @@ import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
 import Signup from './pages/prabath/signup/signup_user';
 import SignupBank from './pages/prabath/signup/signup_bank';
-import Login_sys_admin from './pages/geesan/login_sysAd';
-import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
+//import Login_sys_admin from './pages/geesan/login_sysAd';
+//import SysAd_dashboard from './pages/geesan/sysAd_dashboard';
 // import UserDashboard from './pages/prabath/user_dashboard';
 import AdminDash from './pages/prabath/dashboard/admin_dash';
 
@@ -44,8 +44,8 @@ const App = () => {
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
+          <Route path="/manujaya/bank_admin_signup" element={<Manupage_3/>} />
           <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
-
           <Route path="/manujaya/user_info" element={<Manupage_4 />} />
           <Route path='/Help' element = {<Help />} />
 

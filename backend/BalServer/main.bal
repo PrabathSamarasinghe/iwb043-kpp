@@ -135,13 +135,13 @@ service / on new http:Listener(9090) {
             http:Response res = new;
             res.setPayload(jwt);
 
+
             // Add the cookie to the response
             res.addCookie(cookie);
 
             // Return the response with the cookie
             return res;
         }
-
         // If the credentials are invalid, return 404 Not Found
         return http:NOT_FOUND;
     }

@@ -2,13 +2,11 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Product from './Components/product';
 import Form from './Components/Form';
-import Button from './Components/Button';
 import F_Modal from './Components/Fixed_Modal';
 import S_Modal from './Components/Saving_Modal';
 import './bank_admin.css';
 import { productData, responsive } from './data';
 import { useState } from 'react';
-import SysAd_dashboard from '../geesan/sysAd_dashboard';
 
 function bank_admin(){
      

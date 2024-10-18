@@ -1,0 +1,126 @@
+/* Card styling */
+.some_card {
+    background-color: #77b9ff;
+    padding: 20px;
+    border-radius: 10px;
+    height: 450px;
+    width: 280px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  /* Hover effect to enlarge the card */
+  .some_card:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Change background color on click */
+  .some_card:active {
+    background-color: #39dfe5;
+    color: white;
+  }
+  
+  /* Add focus effect for accessibility */
+  .some_card:focus {
+    outline: none;
+    box-shadow: 0 0 5px #39dfe5;
+  }
+
+  .conf:active {
+    background-color: #51ffce;
+  }
+  .conf{
+    background-color: #62fae1;
+  }
+
+  .card_image{
+    width: 150px;
+    height: 120px;
+    background-repeat:no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+
+  }
+  .card_typedef{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: right;
+    background-color: #e0efff51;
+    border-radius: 60px;
+    padding: 0px 10px;
+    width: fit-content;
+  }
+
+  .card_fieldName{
+    color: #00000090;
+  }
+
+  .plusbox {
+    display: flex; /* Use Flexbox layout */
+    flex-direction: column; /* Align children vertically */
+    justify-content: center; /* Center children vertically */
+    align-content: center; /* Center children horizontally */
+    justify-items: center;
+    align-items: center;
+    /* existing properties */
+    background: linear-gradient(135deg, #e0efff, #b3d8ff);
+    padding: 20px;
+    border-radius: 10px;
+    height: 450px;
+    width: 280px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    overflow: hidden;
+  }
+  
+  
+  .plusbox:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+  }
+  
+  .plusbox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+    background: linear-gradient(90deg, transparent 50%, rgba(0, 122, 255, 0.7) 50%) top,
+                linear-gradient(90deg, rgba(0, 122, 255, 0.7) 50%, transparent 50%) bottom,
+                linear-gradient(0deg, transparent 50%, rgba(0, 122, 255, 0.7) 50%) left,
+                linear-gradient(0deg, rgba(0, 122, 255, 0.7) 50%, transparent 50%) right;
+    background-size: 200% 2px, 200% 2px, 2px 200%, 2px 200%;
+    background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+    transition: background-position 0.5s linear;
+    pointer-events: none; /* Ignore clicks on this element */
+  }
+  
+  .plusbox:hover::before {
+    background-position: 100% 0, 0 100%, 100% 100%, 0 0; /* Animate the border on hover */
+  }
+  
+  .plusbox svg {
+    transition: all 0.3s ease; /* Smooth transition for the glow effect */
+    filter: drop-shadow(0 0 5px rgba(0, 122, 255, 0.7)); /* Initial subtle blue glow */
+    z-index: 1; /* Keep the SVG above the animated border */
+    justify-self: center;
+    align-self: center;
+    position:relative;
+  }
+  
+  .plusbox:hover svg {
+    color: #ffffff;
+  }
+  

@@ -263,3 +263,142 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE GetSavingsDepositsHistory(
+    IN p_username VARCHAR(20) -- Input parameter for the username
+)
+BEGIN
+    -- Select the confirmed deposits for the given username
+    SELECT c.product_name,b.name,s.s_dep_ID, s.amount, s.date_of_deposite
+    FROM savings_deposites s
+    inner join savings_products c on s.s_ID=c.s_ID
+    inner join banks b on c.bank_ID=b.bank_ID
+    WHERE `username` = p_username
+      AND `confirmed` = 1;
+END$$
+
+DELIMITER ;
+
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE GetFixedDepositsHistory(
+    IN p_username VARCHAR(20) -- Input parameter for the username
+)
+BEGIN
+    -- Select the confirmed deposits for the given username
+    SELECT c.product_name,b.name,s.f_dep_ID, s.amount, s.date_of_deposite,c.period
+    FROM fixed_deposites s
+    inner join fixed_products c on s.f_ID=c.f_ID
+    inner join banks b on c.bank_ID=b.bank_ID
+    WHERE `username` = p_username
+      AND `confirmed` = 1;
+END$$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE GetUnconfirmedSavingsDepositsHistory(
+    IN p_username VARCHAR(20) -- Input parameter for the username
+)
+BEGIN
+    -- Select the confirmed deposits for the given username
+    SELECT c.product_name,b.name,s.s_dep_ID, s.amount, s.date_of_deposite
+    FROM savings_deposites s
+    inner join savings_products c on s.s_ID=c.s_ID
+    inner join banks b on c.bank_ID=b.bank_ID
+    WHERE `username` = p_username
+      AND `confirmed` = 0;
+END$$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE GetUnconfirmedFixedDepositsHistory(
+    IN p_username VARCHAR(20) -- Input parameter for the username
+)
+BEGIN
+    -- Select the confirmed deposits for the given username
+    SELECT c.product_name,b.name,s.f_dep_ID, s.amount, s.date_of_deposite,c.period
+    FROM fixed_deposites s
+    inner join fixed_products c on s.f_ID=c.f_ID
+    inner join banks b on c.bank_ID=b.bank_ID
+    WHERE `username` = p_username
+      AND `confirmed` = 0;
+END$$
+
+DELIMITER;
+
+
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE GetFixedDepositDetails(
+    IN p_f_dep_ID INT -- Input parameter for the fixed deposit ID
+)
+BEGIN
+    -- Join the tables to get the required information for the given f_dep_ID
+    SELECT
+        r.NIC,r.full_name,r.gender,r.birthday,r.address,r.phone_number,r.e_mail,
+        b.name AS bank_name,
+        fp.product_name,
+        fp.period,
+        amount,
+        date_of_deposite
+    FROM 
+        fixed_deposites 
+    INNER JOIN 
+        fixed_products fp ON fixed_deposites.f_ID = fp.f_ID
+    INNER JOIN 
+        banks b ON fp.bank_ID = b.bank_ID
+	inner join reg_users r on fixed_deposites.username = r.username
+    WHERE 
+        `f_dep_ID`= p_f_dep_ID;
+END$$
+
+DELIMITER ;
+
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE GetSavingDepositDetails(
+    IN p_s_dep_ID INT -- Input parameter for the Saving deposit ID
+)
+BEGIN
+    -- Join the tables to get the required information for the given s_dep_ID
+    SELECT
+        r.NIC,r.full_name,r.gender,r.birthday,r.address,r.phone_number,r.e_mail,
+        b.name AS bank_name,
+        sp.product_name,
+        
+        amount,
+        date_of_deposite
+    FROM 
+        savings_deposites 
+    INNER JOIN 
+        savings_products sp ON savings_deposites.s_ID = sp.s_ID
+    INNER JOIN 
+        banks b ON sp.bank_ID = b.bank_ID
+	inner join reg_users r on savings_deposites.username = r.username
+    WHERE 
+        `s_dep_ID`= p_s_dep_ID;
+END$$
+
+DELIMITER ;

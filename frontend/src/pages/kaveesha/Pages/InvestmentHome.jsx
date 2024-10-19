@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import '../Styles/home.css';
 
 
@@ -12,8 +12,10 @@ export default function InvesmentHome() {
             <h1>Welcome!<br/>This is Your Invesment Planner</h1>
         </div>
         <div className='button_container'>
-            <button><span></span>Choose An Invesment</button>
-        </div>      
+          <Link to = "/geesan/user_dashboard">
+            <button><span></span>Your Invesments</button>
+            </Link>
+        </div>
     </div>
   )
 }

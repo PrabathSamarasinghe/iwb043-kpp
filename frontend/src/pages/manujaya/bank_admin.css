@@ -25,6 +25,7 @@
   justify-content: center; /* Centers horizontally */
   align-items: center;    /* Centers vertically */
   height: 10vh; 
+  padding: 50px;
 }
 .mopen{
     display: flex;
@@ -41,9 +42,9 @@
   cursor: pointer;
 }
 .corbg{
-  background-color: rgba(255, 255, 255, 0.425);
+  background-color: rgba(255, 255, 255, 0.692);
   border-radius: 40px;
-  box-shadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)" 
+  box-shadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)";
 }
 
 .bank_admin{

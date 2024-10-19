@@ -5,6 +5,11 @@
    border-top-right-radius: 30px;
   }
   
+.cor_item{
+  width: fit-content;
+  display: block;
+}
+
   .mcard {
     box-shadow: 0 4px 8px 0 rgba(0, 3, 187, 0.592);
     width: 220px;
@@ -33,6 +38,7 @@
     align-items:center;
     margin: 20px 0;
     margin-right: 50px; 
+    font-weight: 600;
   }
   .mbtn{
     padding: 8px 16px;
@@ -64,14 +70,20 @@
   left: 0px;
   padding: 10px;
   border-radius: 2%;
-  color: #f3f9fa;
 }
 .model_main{
-  background-color: #000;
-  width: fit-content;
+  background-color: #388ed0;
+  border: 3px solid #000;
+  width: max-content;
   margin: auto;
   border-radius: 20px;
-  padding: 30px;
+  padding: 0px 30px;
+  color: #000;
+}
+
+.model_main h3{
+  background-color: #2f15ae;
+  text-align: center;
 }
 .manu_btn{
   position: relative;
@@ -101,6 +113,7 @@
   width: 500px;
 }
 .m_btn {
+  margin: 5px;
   background-color: #2f15ae;
 }
 .m_titleCloseBtn{
@@ -126,4 +139,23 @@
     height: 25px; /* Set the height */
     line-height: 1; /* Ensure text aligns well */
     border-radius: 10%; /* Make it more circular */
+}
+
+.details-grid {
+  display: flex; /* Use flexbox to create a two-column layout */
+  justify-content: space-between; /* Space between columns */
+  gap: 20px; /* Add space between the two columns */
+}
+
+.details-left,.details-middle, .details-right {
+  flex: 1; /* Each column takes equal space */
+}
+
+.details-left dt {
+  font-weight: bold; /* Make the labels bold */
+  margin-bottom: 10px; /* Add some space below labels */
+}
+
+.details-right dd {
+  margin: 0 0 10px 0; /* Add space between descriptions */
 }

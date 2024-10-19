@@ -5,7 +5,7 @@ export default function product(props) {
   
   return (
     
-    <div>
+    <div className='cor_item'>
       <div className='mcard'>
             <img className='mproduct--image' src={bank_photo} alt="Bank Photo" />
             <h2 className='mname'>{props.name}</h2>

@@ -1,18 +1,19 @@
 /* Card styling */
 .some_card {
-    background-color: #77b9ff;
-    padding: 20px;
-    border-radius: 10px;
-    height: 450px;
-    width: 280px;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #000;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-  }
+  background: linear-gradient(135deg, #053e7b 50%, #054291 50%);
+  padding: 20px;
+  border-radius: 10px;
+  height: 450px;
+  width: 280px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
 
   .some_card p{
     margin: 0px;
@@ -24,21 +25,21 @@
   
   /* Change background color on click */
   .some_card:active {
-    background-color: #39dfe5;
+    background-color: #1343a4;
     color: white;
   }
   
   /* Add focus effect for accessibility */
   .some_card:focus {
     outline: none;
-    box-shadow: 0 0 5px #39dfe5;
+    box-shadow: 0 0 5px #0c0cb7;
   }
 
   .conf:active {
-    background-color: #51ffce;
+    background: linear-gradient(135deg, #057b42 50%, #059138 50%);
   }
   .conf{
-    background-color: #62fae1;
+    background: linear-gradient(135deg, #09ce48 50%, #06a834 50%);
   }
 
   .card_image{
@@ -60,7 +61,7 @@
   }
 
   .card_fieldName{
-    color: #00000090;
+    color: #ffffff90;
   }
 
   .plusbox {
@@ -101,10 +102,10 @@
     border-radius: 10px;
     box-sizing: border-box;
     z-index: 1;
-    background: linear-gradient(90deg, transparent 50%, rgba(0, 122, 255, 0.7) 50%) top,
-                linear-gradient(90deg, rgba(0, 122, 255, 0.7) 50%, transparent 50%) bottom,
-                linear-gradient(0deg, transparent 50%, rgba(0, 122, 255, 0.7) 50%) left,
-                linear-gradient(0deg, rgba(0, 122, 255, 0.7) 50%, transparent 50%) right;
+    background: linear-gradient(90deg, transparent 50%, rgba(0, 45, 93, 0.7) 50%) top,
+                linear-gradient(90deg, rgba(16, 65, 117, 0.7) 50%, transparent 50%) bottom,
+                linear-gradient(0deg, transparent 50%, rgba(0, 41, 84, 0.7) 50%) left,
+                linear-gradient(0deg, rgba(6, 54, 106, 0.7) 50%, transparent 50%) right;
     background-size: 200% 2px, 200% 2px, 2px 200%, 2px 200%;
     background-position: 0 0, 100% 100%, 0 100%, 100% 0;
     transition: background-position 0.5s linear;

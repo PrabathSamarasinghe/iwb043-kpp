@@ -1,3 +1,10 @@
+.bankMain{
+  background-image: url('/bank_bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0px;
+}
+
 .msignupdiv{
     width: 80vh;
     height: 100%;
@@ -18,33 +25,26 @@
   justify-content: center; /* Centers horizontally */
   align-items: center;    /* Centers vertically */
   height: 10vh; 
+  padding: 50px;
 }
 .mopen{
+    display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center;
+    z-index: 1;
 }
 .mmbtn{
-  position: relative;
-  width: 300px;
-  height: 40px;
+  z-index: 0;
   border: none;
   border-radius: 6px;
-  background-color: rgb(3, 89, 23);
+  background-color: rgb(3, 35, 89);
   color: white;
   cursor: pointer;
-  right: -500px;
 }
-.mmmbtn{
-  position: relative;
-  width: 300px;
-  height: 40px;
-  border: none;
-  border-radius: 6px;
-  background-color: rgb(3, 89, 23);
-  color: white;
-  cursor: pointer;
-  right: -500px;
-
+.corbg{
+  background-color: rgba(255, 255, 255, 0.692);
+  border-radius: 40px;
+  box-shadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)";
 }
 
 .bank_admin{
@@ -60,4 +60,10 @@
   padding: 5px;  /* Adjust padding */
   border-radius: 50%; /* Optional: make the button circular */
 }
+.modalBackground{
+  z-index: 1001;
+}
 
+.mtopic{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

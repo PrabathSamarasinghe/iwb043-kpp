@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
 import './components.css';
 //import { useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-function Form(){
- // const handleSubmit = (event) => {
-   // event.preventDefault();
-    // Navigate to user_info page
-    //navigate('./user_info'); // Replace with your actual route
-//};
-const navigate=useNavigate();
+function Form({setData,setOpen,type}){
+    const [f_dep_ID,set_f_dep_id] = useState(null);
+    const handleSubmit = (e)=>{
+      e.preventDefault()
+      setData(f_dep_ID);
+      setOpen(true);
+    }
     return(
-<form className="form-inline">
+<form className="form-inline" onSubmit={handleSubmit}>
   
   <div className="menter">
-  <label htmlFor="userId">User ID:</label>
-    <input type="text"
+  <label htmlFor="F_dep_Id">{type} Deposite ID:</label>
+    <input type="number"
           id="userId"
           name="userId"
+          value={f_dep_ID}
           className="form-control"
-          //value={userId}
-         // onChange={handleInputChange}
-          placeholder="Enter your User ID"
+          onChange={(e)=>{set_f_dep_id(e.target.value)}}
+          placeholder={`${type} Deposite ID`}
           required
-          pattern="[A-Za-z0-9]{6,12}"
           />
   </div>
- <div><button  type="submit" className="mmmmbtn" onClick={()=>navigate('/manujaya/user_info')}>Get User Info</button></div> 
+ <div><button  type="submit" className="mmbtn">Get User Info</button></div> 
 </form>
     );
 }

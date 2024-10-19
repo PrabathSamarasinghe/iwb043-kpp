@@ -41,7 +41,6 @@ const App = () => {
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/geesan/user_dashboard' element={<Dashboard />} />
           
-          <Route path="/manujaya/bank_admin_signup" element={<Manupage_3/>} />
           <Route path="/manujaya/bank_admin" element={<Manupage_1 />} />
           <Route path="/manujaya/user_info" element={<Manupage_4 />} />
           

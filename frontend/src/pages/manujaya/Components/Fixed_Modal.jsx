@@ -20,11 +20,12 @@ function F_Modal({closeModal}) {
   };
 
   return (
-    <div className='modalBackground'>
+    <div  className='modalBackground'>
+      <div className='model_main'>
       
       <div className='modalContainer'>
-        <div className='m_titleCloseBtn'>
-          <button className='manu_btn' onClick={()=>closeModal(false)}>X</button>
+        <div className='mm_titleCloseBtn'>
+          <button className='manu__btn' onClick={()=>closeModal(false)}>X</button>
         </div>
         <div className='mtitle'>
           <h3>Update the Interest Rates of Fixed Products</h3>
@@ -64,6 +65,7 @@ function F_Modal({closeModal}) {
         <button type="button" className="m_btn btn-primary" id='cancelBtn' data-dismiss="modal" onClick={()=>closeModal(false)}>Close</button>
         </div>
       </div>
+    </div>
     </div>
   )
 }

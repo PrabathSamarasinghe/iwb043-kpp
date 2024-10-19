@@ -17,7 +17,8 @@ function S_Modal({scloseModal}) {
     console.log('Saving Product ID:', s_inputData.s_ID);
     console.log('Interest Rate:', s_inputData.interestRate);}
   return (
-    <div className='modalBackground'>
+    <div  className='modalBackground'>
+      <div className='model_main'>
       
       <div className='modalContainer'>
         <div className='mm_titleCloseBtn'>
@@ -59,6 +60,7 @@ function S_Modal({scloseModal}) {
         <button type="button" className="m_btn btn-primary" id='cancelBtn' data-dismiss="modal" onClick={()=>scloseModal(false)}>Close</button>
         </div>
       </div>
+    </div>
     </div>
   )
 }

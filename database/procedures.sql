@@ -142,14 +142,13 @@ CREATE PROCEDURE AddNewSavingsDeposit(
     IN p_amount DECIMAL(15,2),
     IN p_s_ID INT,
     IN p_username VARCHAR(20),
-    IN p_date_of_deposite DATE,
     
     OUT p_s_dep_ID INT
 )
 BEGIN
     -- Insert into 'savings_deposites' table
-    INSERT INTO savings_deposites (amount, s_ID, username, date_of_deposite)
-    VALUES (p_amount, p_s_ID, p_username, p_date_of_deposite);
+    INSERT INTO savings_deposites (amount, s_ID, username)
+    VALUES (p_amount, p_s_ID, p_username);
 
     -- Retrieve the last inserted ID
     SET p_s_dep_ID = LAST_INSERT_ID();
@@ -166,14 +165,13 @@ CREATE PROCEDURE AddNewFixedDeposit(
     IN p_amount DECIMAL(15,2),
     IN p_f_ID INT,
     IN p_username VARCHAR(20),
-    IN p_date_of_deposite DATE,
     
     OUT p_f_dep_ID INT
 )
 BEGIN
     -- Insert into 'fixed_deposites' table
-    INSERT INTO fixed_deposites (amount, f_ID, username, date_of_deposite)
-    VALUES (p_amount, p_f_ID, p_username, p_date_of_deposite);
+    INSERT INTO fixed_deposites (amount, f_ID, username)
+    VALUES (p_amount, p_f_ID, p_username);
 
     -- Retrieve the last inserted f_dep_ID
     SET p_f_dep_ID = LAST_INSERT_ID();

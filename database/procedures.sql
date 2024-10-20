@@ -230,7 +230,7 @@ BEGIN
     SELECT s.s_ID, s.product_name, s.bank_ID, s.interest_rate, b.name
     FROM savings_products s
     inner join banks b on s.bank_ID=b.bank_ID
-    WHERE `min_amount` < p_amount AND `min_age` < user_age
+    WHERE `min_amount` <= p_amount AND `min_age` <= user_age
     ORDER BY interest_rate DESC;
 END //
 
@@ -256,8 +256,8 @@ BEGIN
     SELECT f.f_ID, f.product_name, f.bank_ID, f.interest_rate, f.period,b.name
     FROM fixed_products f
     INNER JOIN banks b ON f.bank_ID = b.bank_ID
-    WHERE `min_amount` < p_amount 
-      AND `min_age` < user_age 
+    WHERE `min_amount` <= p_amount 
+      AND `min_age` <= user_age 
       AND `period` = p_period
     ORDER BY f.interest_rate DESC;
 END //

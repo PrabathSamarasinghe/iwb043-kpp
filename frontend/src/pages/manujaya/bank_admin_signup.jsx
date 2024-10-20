@@ -30,7 +30,8 @@ const bank_admin_signup = () => {
   return (
     <main>
       <div className='msignupdiv'>
-        <i class='bx bxs-bank'></i>
+        <div className='icon_bankadmin'><i className='bx bxs-bank'></i></div>
+        
         <h3 className='heading'>BANK ADMIN SIGNUP</h3>
         <form className="needs-validation" noValidate>
           <div className="form-row">

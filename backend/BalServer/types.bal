@@ -91,6 +91,7 @@ type FixedDepositDetails record {
     string address;
     string phone_number;
     string? e_mail;
+    boolean confirmed;
 };
 
 type SavingsDepositDetails record {
@@ -106,6 +107,7 @@ type SavingsDepositDetails record {
     string address;
     string phone_number;
     string? e_mail;
+    boolean confirmed;
 };
 type FixedProduct record {|
     int f_ID;

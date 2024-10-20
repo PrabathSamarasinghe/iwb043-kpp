@@ -17,8 +17,8 @@ export default function Navbar() {
             </ul>
             <div className="userLogin">
                 <ul className="login_links">
-                    <li><a className='signup'><Link to = "/prabath/signup_user"> Sign up </Link></a></li>
-                    <li><a className='register'><Link to = "/prabath/login_user"> Log In </Link></a></li>
+                    <li><a className='signup'><Link to = "/signup_user"> Sign up </Link></a></li>
+                    <li><a className='register'><Link to = "/login_user"> Log In </Link></a></li>
                 </ul>
             </div>
         </nav>

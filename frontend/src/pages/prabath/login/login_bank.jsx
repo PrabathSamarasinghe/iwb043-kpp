@@ -15,7 +15,7 @@ const login_bank = () => {
     try {
       const response = await axios.post(url, payload,{withCredentials:true}); // Use the custom Axios instance
       console.log('Response data:', response);
-      navigate("/manujaya/bank_admin");
+      navigate("/bank_admin");
       // Handle the response (e.g., show a success message)
     } catch (error) {
       alert("Invalid username or password");
@@ -48,7 +48,7 @@ const login_bank = () => {
           <button type="submit" className="btn btn-primary" onClick={() => {<Link to="/manujaya/bank_admin"> </Link>}}>Login</button>
 
           <p className="signup-link">
-            Don't have an account? <Link to="/manujaya/bank_admin_signup">Sign up</Link>
+            Don't have an account? <Link to="/signup_bank">Sign up</Link>
           </p>
         </form>
       </div>

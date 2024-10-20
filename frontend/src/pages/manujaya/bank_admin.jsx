@@ -36,8 +36,8 @@ function bank_admin() {
                     <Form type="Savings" setData={set_s_dep_id} setOpen={sdsetOpenModal} />
                     <hr />
                     <div className='mopen'>
-                         <button className="mmbtn" onClick={() => { setOpenModal(true); }}>Update Fixed Product<br></br> Interest Rates</button>
-                         <button className="mmbtn" onClick={() => { ssetOpenModal(true); }}>Update Saving Product<br></br> Interest Rates</button>
+                         <button className="button mmbtn" onClick={() => { setOpenModal(true); }}>Update Fixed Product<br></br> Interest Rates</button>
+                         <button className="button mmbtn" onClick={() => { ssetOpenModal(true); }}>Update Saving Product<br></br> Interest Rates</button>
                     </div>
                     {OpenModal && <F_Modal closeModal={setOpenModal} />}
                     {sOpenModal && <S_Modal scloseModal={ssetOpenModal} />}

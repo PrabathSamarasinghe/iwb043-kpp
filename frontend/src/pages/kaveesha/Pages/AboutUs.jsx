@@ -11,7 +11,7 @@ export default function Aboutus() {
         </p>
         <div className="about-info">
           <div className="about-img">
-            <img src="Logo.jpg" alt="Logo" />
+          <img src="/src/assets/KPP_wbg_large.png" alt="Logo" />
           </div>
           <div>
             <p>
@@ -31,7 +31,7 @@ export default function Aboutus() {
         <div className="team-cards">
           <div className="card">
             <div className="card-img">
-              <img src="pasidu.jpg" alt="User 1" />
+              <img src="pasidu-4.png" alt="User 1" />
             </div>
             <div className="card-info">
               <h2 className="card-name">Pasindu</h2>
@@ -43,7 +43,7 @@ export default function Aboutus() {
 
           <div className="card">
             <div className="card-img">
-              <img src="Kaveesha.jpg" alt="User 2" />
+              <img src="kaveesha-3.png" alt="User 2" />
             </div>
             <div className="card-info">
               <h2 className="card-name">Kaveesha</h2>
@@ -55,7 +55,7 @@ export default function Aboutus() {
 
           <div className="card">
             <div className="card-img">
-              <img src="Geeshan.jpg" alt="User 3" />
+              <img src="geesan-4.png" alt="User 3" />
             </div>
             <div className="card-info">
               <h2 className="card-name">Geeshan</h2>
@@ -67,7 +67,7 @@ export default function Aboutus() {
 
           <div className="card">
             <div className="card-img">
-              <img src="prabath.jpg" alt="User 4" />
+              <img src="prabath-3.png" alt="User 4" />
             </div>
             <div className="card-info">
               <h2 className="card-name">Prabath</h2>

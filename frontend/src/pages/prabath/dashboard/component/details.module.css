@@ -10,8 +10,9 @@
 }
 .xbtn{
     position: absolute;
-    top: 0;
+    transform: translateY(-50%);
     right: 0;
+    width: 30px;
     background-color: red;
     color: white;
     border: none;
@@ -46,12 +47,12 @@
     width: 100%;
     position: relative;
     transform: translateY(-90px);
-    left: 610px;
+    left: 500px;
 }
 .accbtn{
     background-color: green;
     color: white;
-    padding: 5px;
+    padding: 0px;
     border: none;
     cursor: pointer;
     border-radius: 5px;

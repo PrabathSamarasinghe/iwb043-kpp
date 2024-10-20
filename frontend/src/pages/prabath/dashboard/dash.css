@@ -1,3 +1,6 @@
+button{
+    width: 0px;
+}
 .side{
     /* background-color: #f8f9fa; */
     display: flex;

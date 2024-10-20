@@ -1,0 +1,176 @@
+* {
+    font-family: calibri;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --main-color: #5b85b6;
+    --secondary-color: green;
+    --text-color: #1b1b1b;
+    --bg-color: #fff;
+    --box-shadow: 2px 2px 10px 14px rgb(14 55 54 / 15%);
+}
+
+/*body {
+    font-family: Arial, sans-serif;
+    background: rgb(192, 223, 225);
+    background-image: url(/public/everything-to-know-about-fixed-deposit-receipt.jpg);
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    margin-left: 160px;
+
+    
+}*/
+
+.DashboardFixed{
+    font-family: Arial, sans-serif;
+    background: rgb(192, 223, 225);
+    background-image: url(/public/everything-to-know-about-fixed-deposit-receipt.jpg);
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    margin-left: 160px;
+
+}
+
+.dashboard h1 {
+    position: relative;
+    height: 500px;
+    left: 570px;
+    
+}
+
+.dash {
+    display: flex;
+    justify-content: space-between; /* Adjust alignment */
+    width: 100%; /* Ensure it takes full width */
+}
+
+.invesment-container {
+
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+     
+    background-size: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(202, 208, 218,0.95); /* Fallback for browsers that don't support background-size: cover */
+}
+
+.invesment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.invesment-header h1 {
+    font-size: 25px;
+    margin: 0;
+}
+
+.amount-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.amount-options button {
+    width: 45%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.amount-options button:hover {
+    background-color: #737fb0;
+}
+
+.custom-amount {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.custom-amount input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.Duration label {
+    font-size: 20px;
+}
+
+.Duration input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.Invest-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* New empty box styles */
+.empty-box {
+    width: 300px; /* Set a width for your empty box */
+    height: 500px; /* Set a height for your empty box */
+    /*background-color: rgb(255, 255, 255);  Background color */
+    background-image: url(/public/DASHBOARD.jpg) ;
+    border: 1px solid #000000; /* Optional: border for visibility */
+    border-radius: 4px; /* Optional: rounded corners */
+    margin-left: 20px; /* Space between the investment container and the empty box */
+    display: flex;
+    margin-right: 160px;
+    justify-content: center;
+    align-items: top; /* Center content inside the empty box */
+    color: #1b1b1b; /* Text color for any content */
+    /* Font size for any content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    
+}
+
+.empty-box h2{
+    font-size: 25px; 
+    background-color: rgba(196, 196, 196, 0.9);
+    border-radius: 4px;
+    height: 40px;
+    width: 300px;
+    justify-content:center ;
+
+}

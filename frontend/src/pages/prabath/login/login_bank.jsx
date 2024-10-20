@@ -30,7 +30,7 @@ const login_bank = () => {
       <i class='bx bxs-bank'></i>
       </div>
         
-        <h3 className='heading'>BANK LOGIN</h3>
+        <h3 className='heading'>BANK ADMIN LOGIN</h3>
         
         <form onSubmit={submit}>
         <div className="form-group">
@@ -48,7 +48,7 @@ const login_bank = () => {
           <button type="submit" className="btn btn-primary" onClick={() => {<Link to="/manujaya/bank_admin"> </Link>}}>Login</button>
 
           <p className="signup-link">
-            Don't have an account? <Link to="/prabath/signup_bank">Sign up</Link>
+            Don't have an account? <Link to="/manujaya/bank_admin_signup">Sign up</Link>
           </p>
         </form>
       </div>

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import '../Styles/dashboardFixed.css';
+import Seggesions from "./seggesions";
 
 export default function DashboardFixed() {
+    const[sug,setsug] = useState(false);
+    const search = ()=>{
+        setsug(true);
+    }
     return (
+        <div className="blbl">
+        <h1>Fixed Deposite</h1>
         <div className="DashboardFixed">
             <section className="dash">
                 <div className="invesment-container">
@@ -35,13 +42,15 @@ export default function DashboardFixed() {
                             <option value="5 Years" />
                         </datalist>
                     </div>
-                    <button className="Invest-button">INVEST</button>
+                    <button className="Invest-button" onClick={search}>INVEST</button>
                 </div>
                 
                 <div className="empty-box">
                     <h2>BEST OPTIONS HERE</h2>
+                    {sug && <Seggesions/>}
                 </div>
             </section>
+        </div>
         </div>
     );
 }

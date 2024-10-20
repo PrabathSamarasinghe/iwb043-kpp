@@ -82,14 +82,20 @@ END //
 CREATE PROCEDURE AddBankAdmin(
     IN p_username VARCHAR(20),
     IN p_password VARCHAR(255),
-    IN p_bank_ID INT,
+    IN p_bank_name VARCHAR(20),
     IN p_branch_name VARCHAR(100),
-    IN p_service_No VARCHAR(20),
-    IN p_verified BOOLEAN
+    IN p_service_No VARCHAR(20)
 )
 BEGIN
-    INSERT INTO bank_admins (username, password, bank_ID, branch_name, service_No)
-    VALUES (p_username, p_password, p_bank_ID, p_branch_name, p_service_No);
+	-- Insert bank and get the last inserted bank_ID
+	INSERT INTO banks (name) 
+	VALUES (p_bank_name);
+
+	SET @p_bank_ID = LAST_INSERT_ID();
+
+	-- Insert bank admin using the bank_ID from the previous insert
+	INSERT INTO bank_admins (username, password, bank_ID, branch_name, service_No)
+	VALUES (p_username, p_password, @p_bank_ID, p_branch_name, p_service_No);
 END //
 
 

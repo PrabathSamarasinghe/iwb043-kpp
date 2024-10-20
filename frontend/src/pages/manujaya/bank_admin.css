@@ -67,3 +67,14 @@
 .mtopic{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.icon_bankadmin{
+  margin: auto;
+  width: fit-content;
+}
+.bankadmin_login{
+  margin: auto;
+  width: fit-content;
+}
+.signup__link{
+  color: #000;
+}

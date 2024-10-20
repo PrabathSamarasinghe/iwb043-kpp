@@ -7,13 +7,14 @@ const bank_admin_login = () => {
     <>
       <main>
       <div className='login'>
-        <i class='bx bxs-bank'></i>
+      <div className='bankadmin_login'> <i class='bx bxs-bank'></i></div>
         <h3 className='heading'>BANK ADMIN LOGIN</h3>
         
         <form>
           <div className="form-group">
             <i className='bx bxs-user'></i>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='email'/>
+            
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='UserName'/>
           </div>
           <div className="form-group">
             <i className='bx bxs-lock-alt'></i>
@@ -26,7 +27,7 @@ const bank_admin_login = () => {
           <button type="submit" className="btn btn-primary">Login</button>
 
           <p className="signup-link">
-            Don't have an account? <Link to="/manujaya/bank_admin_signup">Sign up</Link>
+            Don't have an account? <Link className ='signup__link'to="/manujaya/bank_admin_signup">Sign up</Link>
           </p>
         </form>
       </div>

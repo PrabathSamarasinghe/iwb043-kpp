@@ -107,7 +107,7 @@ service / on new http:Listener(9090) {
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `CALL GetNonVerifiedUsers()`;
+        sql:ParameterizedQuery query = ``;
         stream<PendingUser,sql:Error?> response = dbClient->query(query);
 
 
@@ -285,7 +285,7 @@ service / on new http:Listener(9090) {
             return error("Password must be at least 6 characters long");
         }
         string hashedpass = crypto:hashSha256(payl.password.toBytes()).toBase16();
-        sql:ParameterizedQuery query = `SELECT * FROM reg_users WHERE username${hashedpass}`;
+        sql:ParameterizedQuery query = `call AddNewUserAndRegUser(${payl.username},${hashedpass},${payl.NIC},${payl.full_name},${payl.gender},${payl.birthday},${payl.address},${payl.phone_number},${payl.e_mail})`;
         sql:ExecutionResult|sql:Error result = dbClient->execute(query);
         if (result is sql:Error) {
             return result;
@@ -417,7 +417,7 @@ service / on new http:Listener(9090) {
         if (audience != "users") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `SELECT verified FROM reg_users WHERE username = ${username}`;
+        sql:ParameterizedQuery query = `call GetUnconfirmedFixedDepositsHistory(${username})`;
         stream<FixedDeposit, sql:Error?> fds = dbClient->query(query);
         return from var fd in fds
             select fd;
@@ -445,7 +445,7 @@ service / on new http:Listener(9090) {
             return error("Unauthorized request");
         }
 
-        sql:ParameterizedQuery query = `CALL usd(${username})`;
+        sql:ParameterizedQuery query = `call GetUnconfirmedSavingsDepositsHistory(${username}`;
         stream<SavingsDeposit, sql:Error?> sds = dbClient->query(query);
 
         return from var sd in sds
@@ -473,7 +473,7 @@ service / on new http:Listener(9090) {
             return error("Unauthorized request");
         }
 
-        sql:ParameterizedQuery query = `CALL hfd(${username})`;
+        sql:ParameterizedQuery query = `call GetFixedDepositsHistory(${username}`;
         stream<FixedDeposit, sql:Error?> fds = dbClient->query(query);
 
         return from var fd in fds
@@ -501,7 +501,7 @@ service / on new http:Listener(9090) {
             return error("Unauthorized request");
         }
 
-        sql:ParameterizedQuery query = `CALL hsd(${username})`;
+        sql:ParameterizedQuery query = `call GetSavingsDepositsHistory(${username}`;
         stream<SavingsDeposit, sql:Error?> sds = dbClient->query(query);
 
         return from var sd in sds
@@ -532,7 +532,7 @@ service / on new http:Listener(9090) {
             return error("Unauthorized request");
         }
 
-        sql:ParameterizedQuery query = `CALL fixsearch(${username},${period},${amount})`;
+        sql:ParameterizedQuery query = `call GetSuitableFixedProducts(${username},${amount},${period})`;
         stream<FixedProduct, sql:Error?> sds = dbClient->query(query);
 
         return from var sd in sds
@@ -563,7 +563,7 @@ service / on new http:Listener(9090) {
         }
 
 
-        sql:ParameterizedQuery query = `CALL savingssearch(${username}, ${amount})`;
+        sql:ParameterizedQuery query = `call GetSuitableSavingsProducts(${username},${amount})`;
         stream<SavingsProduct, sql:Error?> sds = dbClient->query(query);
 
         return from var sd in sds
@@ -664,7 +664,7 @@ service / on new http:Listener(9090) {
 
         if (username is string) {
             // Call a stored procedure to insert the new fixed deposit record
-            sql:ParameterizedQuery query = `CALL insert_fixed_deposit(${username}, ${F_ID}, ${amount})`;
+            sql:ParameterizedQuery query = `CALL AddNewFixedDeposit(${amount},${F_ID},${username}, @new_f_dep_ID);SELECT @new_f_dep_ID as f_dep_ID`;
             int|sql:Error f_dep_ID = check dbClient->queryRow(query);
 
             return f_dep_ID; // Return the generated f_dep_ID
@@ -672,11 +672,13 @@ service / on new http:Listener(9090) {
         return http:NOT_FOUND;
     }
 
-    resource function post User/SavingsInvestRequest(http:Request req, int S_ID, decimal amount) returns http:NotFound|int|error {
+    resource function post User/SavingsInvestRequest(http:Request req ) returns http:NotFound|int|error {
         // Creates a new savings deposit without confirmation
         // Payload should have the s_ID and amount
         // Returns the s_dep_ID of the new deposit
-
+        json payl = check req.getJsonPayload();
+        int S_ID = check payl.S_ID;
+        decimal amount = check payl.amount;
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -699,7 +701,7 @@ service / on new http:Listener(9090) {
 
         if (username is string) {
             // Call a stored procedure to insert the new savings deposit record
-            sql:ParameterizedQuery query = `CALL insert_savings_deposit(${username}, ${S_ID}, ${amount})`;
+            sql:ParameterizedQuery query = `CALL AddNewSavingsDeposit(${amount},${S_ID},${username}, @new_s_dep_ID);SELECT @new_s_dep_ID as s_dep_ID`;
             int|sql:Error s_dep_ID = check dbClient->queryRow(query);
 
             return s_dep_ID; // Return the generated s_dep_ID

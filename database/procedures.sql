@@ -402,3 +402,30 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+--delete user
+
+DELIMITER //
+
+CREATE PROCEDURE DeleteUser(IN userNameInput VARCHAR(20))
+BEGIN
+  -- First delete from reg_users because of the foreign key constraint
+  DELETE FROM reg_users WHERE `username` = userNameInput;
+
+  -- Then delete from users
+  DELETE FROM users WHERE `username` = userNameInput;
+END //
+
+DELIMITER ;
+
+---delete bank_admin
+
+DELIMITER //
+
+CREATE PROCEDURE DeleteBankAdmin(IN userNameInput VARCHAR(20))
+BEGIN
+  -- Delete from bank_admins table based on the username
+  DELETE FROM bank_admins WHERE `username` = userNameInput;
+END //
+
+DELIMITER ;

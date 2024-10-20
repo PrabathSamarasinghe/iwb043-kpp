@@ -31,7 +31,7 @@ export default function Aboutus() {
         <div className="team-cards">
           <div className="card">
             <div className="card-img">
-              <img src="pasidu-4.png" alt="User 1" />
+              <img src="Pasidu-4.png" alt="User 1" />
             </div>
             <div className="card-info">
               <h2 className="card-name">Pasindu</h2>

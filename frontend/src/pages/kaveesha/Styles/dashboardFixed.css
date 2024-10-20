@@ -1,4 +1,6 @@
-* {
+.dashboardSavings {
+    display: flex;
+    justify-content: space-around;
     font-family: calibri;
     margin: 0;
     padding: 0;
@@ -34,28 +36,39 @@
 
     
 }*/
-
+.blbl{
+    background: linear-gradient(to right, rgb(38, 0, 144), rgb(21, 126, 187)); /* Gradient from blue to yellow */
+}
+.blbl h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-seri;
+    color: #85beff;
+}
 .DashboardFixed{
     font-family: Arial, sans-serif;
-    background: rgb(192, 223, 225);
-    background-image: url(/public/everything-to-know-about-fixed-deposit-receipt.jpg);
-    background-size: cover; /* Ensures the image covers the entire background */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    
     display: flex;
     justify-content: left;
     align-items: center;
     height: 100vh;
     margin: 0;
-    margin-left: 160px;
 
 }
-
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    z-index: -1; /* Send to the back */
+  }
+  
 .dashboard h1 {
     position: relative;
     height: 500px;
     left: 570px;
+    
     
 }
 
@@ -67,10 +80,12 @@
 
 .invesment-container {
 
-    width: 300px;
+    position: relative;
+    left: 120px;
+    width: fit-content;
     padding: 20px;
     border-radius: 10px;
-     
+     margin: 40px;
     background-size: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: rgb(202, 208, 218,0.95); /* Fallback for browsers that don't support background-size: cover */
@@ -85,6 +100,7 @@
 .invesment-header h1 {
     font-size: 25px;
     margin: 0;
+    color: #000000;
 }
 
 .amount-options {
@@ -148,21 +164,19 @@
 
 /* New empty box styles */
 .empty-box {
-    width: 300px; /* Set a width for your empty box */
-    height: 500px; /* Set a height for your empty box */
+    display: block;
     /*background-color: rgb(255, 255, 255);  Background color */
     background-image: url(/public/DASHBOARD.jpg) ;
     border: 1px solid #000000; /* Optional: border for visibility */
-    border-radius: 4px; /* Optional: rounded corners */
+    border-radius: 10px; /* Optional: rounded corners */
     margin-left: 20px; /* Space between the investment container and the empty box */
-    display: flex;
     margin-right: 160px;
     justify-content: center;
     align-items: top; /* Center content inside the empty box */
     color: #1b1b1b; /* Text color for any content */
     /* Font size for any content */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    
+    padding: 10px;
 }
 
 .empty-box h2{
@@ -172,5 +186,25 @@
     height: 40px;
     width: 300px;
     justify-content:center ;
+    font-weight: 600;
+    text-align: center;
+    color: #124985;
+
+}
+
+.sug__{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #030066;
+    border-radius: 30px;
+    
+}
+.sugs____{
+    border-radius: 30px;
+    backdrop-filter: blur(10px); /* Adjust the value for more or less blur */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    margin: 10px;
+    padding: 10px;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }

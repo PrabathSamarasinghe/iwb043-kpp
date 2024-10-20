@@ -21,7 +21,7 @@ export default function Aboutus() {
               Whether you're a seasoned investor or just starting out, we’re here to
               guide you every step of the way. Join us on the journey to financial success!
             </p>
-            <button>Read More...</button>
+            <button className='button'>Read More...</button>
           </div>
         </div>
       </section>

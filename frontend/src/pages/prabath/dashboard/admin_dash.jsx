@@ -14,7 +14,9 @@ const admin_dash = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:9090/NonVerifiedUsers");
+      const response = await axios.get("http://localhost:9090/NonVerifiedUsers", {
+        withCredentials: true
+      });
       setUSers(response.data);
     } catch (error) {
       console.error("There was an error fetching the data!", error);
@@ -23,7 +25,9 @@ const admin_dash = () => {
 
   const fetchBankAdmins = async () => {
     try {
-      const response = await axios.get("http://localhost:9090/NonVerifiedBankAdmins");
+      const response = await axios.get("http://localhost:9090/NonVerifiedBankAdmins", {
+        withCredentials: true
+      });
       setBanks(response.data);
     } catch (error) {
       console.error("There was an error fetching the data!", error);

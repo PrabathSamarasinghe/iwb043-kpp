@@ -96,6 +96,7 @@ service / on new http:Listener(9090) {
             }
         }
         if (authCookie is ()) {
+            io:print("No cookie");
             return http:NOT_FOUND;
         }
 
@@ -107,7 +108,7 @@ service / on new http:Listener(9090) {
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = ``;
+        sql:ParameterizedQuery query = `select * from reg_users where verified = false`;
         stream<PendingUser,sql:Error?> response = dbClient->query(query);
 
 
@@ -136,7 +137,7 @@ service / on new http:Listener(9090) {
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `CALL GetNonVerifiedBankAdmins()`;
+        sql:ParameterizedQuery query = `select * from bank_admins where verified = false`;
         stream<PendingBankAdmin,sql:Error?> response = dbClient->query(query);
 
 

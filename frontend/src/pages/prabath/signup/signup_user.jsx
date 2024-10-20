@@ -20,24 +20,35 @@ const SignupUser = () => {
     firstName: '',
     lastName: '',
   });
+
   const handleChange = (e) => {
-    setFormdata({
-      ...formdata,
-      [e.target.name]: e.target.value, 
-    });
-    setFullName({
-      ...FullName,
-      [e.target.name]: e.target.value,
-    });
-    formdata.full_name = FullName.firstName + ' ' + FullName.lastName;
+    const { name, value } = e.target;
+    
+    if (name === "firstName" || name === "lastName") {
+      setFullName({
+        ...FullName,
+        [name]: value
+      });
+      
+      // Update the full_name in formdata whenever the first or last name changes
+      setFormdata({
+        ...formdata,
+        full_name: `${FullName.firstName} ${FullName.lastName}`  // Concatenate first and last names
+      });
+    } else {
+      setFormdata({
+        ...formdata,
+        [name]: value
+      });
+    }
   };
+  
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    console.log('Form Data Submitted:', formdata);
+    event.preventDefault(); 
+    // console.log('Form Data Submitted:', formdata);
     try {
-      const response = await axios.post('http://localhost:9090/SignupUser', formdata);
-      console.log(response.data); // For debugging
+      await axios.post('http://localhost:9090/SignupUser', formdata);
     } catch (error) {
       console.error('Error submitting the form:', error);
     }

@@ -123,3 +123,16 @@ type SavingsProduct record {|
     string bank_name;
     decimal interest_rate;
 |};
+
+type BankStat record {
+    string Bank_Name;
+    int stat;
+};
+
+type BankStats record {
+    string Bank_Name;
+    int fixed_invest_number;
+    int fixed_invest_amount;
+    int savings_invests_number;
+    int savings_invests_amount;
+};

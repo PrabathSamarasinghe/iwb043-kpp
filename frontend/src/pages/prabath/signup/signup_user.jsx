@@ -1,34 +1,48 @@
 import React, { useState } from 'react';
 import './signup.css';
-
+import axios from 'axios';
 const SignupUser = () => {
   const [formdata, setFormdata] = useState({
-    firstName: '', 
-    lastName: '',
+    full_name: '', 
     address: '',
-    dob: '',
-    nic: '',
-    email: '',
+    birthday: '',
+    NIC: '',
+    e_mail: '',
     username: '',
     password: '',
     repassword: '',
-    phone: '',
+    phone_number: '',
     home: '',
     gender: '', 
   });
 
+  const [FullName, setFullName] = useState({
+    firstName: '',
+    lastName: '',
+  });
   const handleChange = (e) => {
     setFormdata({
       ...formdata,
       [e.target.name]: e.target.value, 
     });
+    setFullName({
+      ...FullName,
+      [e.target.name]: e.target.value,
+    });
+    formdata.full_name = FullName.firstName + ' ' + FullName.lastName;
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
     console.log('Form Data Submitted:', formdata);
+    try {
+      const response = await axios.post('http://localhost:9090/SignupUser', formdata);
+      console.log(response.data); // For debugging
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+    }
   };
- 
+  
   return (
     <main>
       <div className='signupdiv'>
@@ -47,7 +61,7 @@ const SignupUser = () => {
                 name="firstName"  // Added name attribute
                 placeholder="First Name"
                 required
-                value={formdata.firstName}
+                value={FullName.firstName}
                 onChange={handleChange}
               />
               <div className="valid-feedback">Looks good!</div>
@@ -61,7 +75,7 @@ const SignupUser = () => {
                 name="lastName"  // Added name attribute
                 placeholder="Last Name"
                 required
-                value={formdata.lastName}
+                value={FullName.lastName}
                 onChange={handleChange}
               />
               <div className="valid-feedback">Looks good!</div>
@@ -92,10 +106,10 @@ const SignupUser = () => {
                 type="text"
                 className="form-control"
                 id="validationCustom06"
-                name="nic"  // Added name attribute
+                name="NIC"  // Added name attribute
                 placeholder="NIC"
                 required
-                value={formdata.nic}
+                value={formdata.NIC}
                 onChange={handleChange}
               />
               <div className="invalid-feedback">Please provide a valid ID.</div>
@@ -106,9 +120,9 @@ const SignupUser = () => {
                 type="date"
                 className="form-control"
                 id="validationCustom07"
-                name="dob"  // Added name attribute
+                name="birthday"  // Added name attribute
                 required
-                value={formdata.dob}
+                value={formdata.birthday}
                 onChange={handleChange}
               />
               <div className="invalid-feedback">Please provide a valid date of birth.</div>
@@ -152,10 +166,10 @@ const SignupUser = () => {
                 type="email"
                 className="form-control"
                 id="validationCustomEmail"
-                name="email"  // Added name attribute
+                name="e_mail"  // Added name attribute
                 placeholder="Email"
                 required
-                value={formdata.email}
+                value={formdata.e_mail}
                 onChange={handleChange}
               />
               <div className="invalid-feedback">Please provide a valid email.</div>
@@ -211,15 +225,15 @@ const SignupUser = () => {
 
           <div className="form-row">
             <div className="col-md-6 mb-3">
-              <label htmlFor="validationCustomPassword">Phone number</label>
+              <label htmlFor="validationCustomPassword">Phone _number</label>
               <input
                 type="text"
                 className="form-control"
                 id="validationCustomphone"
-                name="phone"  // Added name attribute
+                name="phone_number"  // Added name attribute
                 placeholder="Phone number"
                 required
-                value={formdata.phone}
+                value={formdata.phone_number}
                 onChange={handleChange}
               />
               <div className="invalid-feedback">Please provide a valid Phone number.</div>

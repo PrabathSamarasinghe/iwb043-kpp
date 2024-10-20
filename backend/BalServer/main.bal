@@ -8,7 +8,7 @@ import ballerinax/mysql.driver as _;
 
 // Create a MySQL client
 
-mysql:Client dbClient = check new ("localhost", "root", "0310",
+mysql:Client dbClient = check new ("localhost", "KPP_user", "pass123",
     "kpp", 3306
 );
 
@@ -277,6 +277,7 @@ service / on new http:Listener(9090) {
     resource function post SignupUser(NewUser payl) returns http:Created|error {
         // Here you would typically validate the input and hash the password
         // For example:
+        io:print("hihi");
         if (payl.username == "") {
             return error("Username cannot be empty");
         }
@@ -1086,6 +1087,31 @@ service / on new http:Listener(9090) {
             return audience;
         }
         return http:NOT_FOUND;
+    }
+
+    resource function get AllBankStats(http:Request req) returns BankStats[]|error {
+        sql:ParameterizedQuery query = `call GetNo_FixedInvestmentsPerBank()`;
+        stream<BankStat, sql:Error?> statsStream = dbClient->query(query);
+        BankStat[] fix_nums = check from var stat in statsStream select stat;
+        query = `call GetNo_FixedInvestmentsPerBank()`;
+        statsStream = dbClient->query(query);
+        BankStat[] fix_amounts = check from var stat in statsStream select stat;
+        query = `call GetNo_FixedInvestmentsPerBank()`;
+        statsStream = dbClient->query(query);
+        BankStat[] sav_nums = check from var stat in statsStream select stat;
+        query = `call GetNo_FixedInvestmentsPerBank()`;
+        statsStream = dbClient->query(query);
+        BankStat[] sav_amounts = check from var stat in statsStream select stat;
+        int length = fix_nums.length();
+        int i = 0;
+        BankStats[] b = [];
+        while i < length {
+        b.push({Bank_Name: fix_amounts[i].Bank_Name,fixed_invest_amount: fix_amounts[i].stat,
+        fixed_invest_number: fix_nums[i].stat, savings_invests_number: sav_nums[i].stat, savings_invests_amount: sav_amounts[i].stat});
+        i += 1;
+        }
+        return b;
+
     }
 }
 

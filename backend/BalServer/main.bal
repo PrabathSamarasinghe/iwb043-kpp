@@ -107,7 +107,7 @@ service / on new http:Listener(9090) {
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = ``;
+        sql:ParameterizedQuery query = `call GetNonVerifiedUsers()`;
         stream<PendingUser,sql:Error?> response = dbClient->query(query);
 
 
@@ -230,7 +230,8 @@ service / on new http:Listener(9090) {
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `CALL ${username};`;
+        sql:ParameterizedQuery query = `CALL DeleteUser(${username});
+`;
         sql:ExecutionResult|sql:Error responce = dbClient->execute(query);
         if(responce is sql:Error){
             return responce;
@@ -262,7 +263,8 @@ service / on new http:Listener(9090) {
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `CALL ${username}`;
+        sql:ParameterizedQuery query = `CALL DeleteBankAdmin(${username});
+`;
         sql:ExecutionResult|sql:Error responce = dbClient->execute(query);
         if(responce is sql:Error){
             return responce;
@@ -784,7 +786,7 @@ service / on new http:Listener(9090) {
             return error("Password must be at least 6 characters long");
         }
         string hashedpass = crypto:hashSha256(payl.password.toBytes()).toBase16();
-        sql:ParameterizedQuery query = `CALL addnewbAdm${hashedpass}`;
+        sql:ParameterizedQuery query = `CALL AddBankAdmin(${payl.username},${hashedpass},${payl.bank_name},${payl.branch_name},${payl.service_No})`;
         sql:ExecutionResult|sql:Error result = dbClient->execute(query);
         if (result is sql:Error) {
             return result;
@@ -817,7 +819,7 @@ service / on new http:Listener(9090) {
         if (audience != "BankAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `CALL ${F_ID},${newInterestRate}`;
+        sql:ParameterizedQuery query = `CALL UpdateFixedInterestRates(${F_ID},${newInterestRate})`;
         sql:ExecutionResult|sql:Error responce = dbClient->execute(query);
         if(responce is sql:Error){
             return responce;
@@ -846,7 +848,7 @@ service / on new http:Listener(9090) {
         if (audience != "BankAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `call ${S_ID},${newInterestRate}`;
+        sql:ParameterizedQuery query = `call UpdatSavingInterestRates(${S_ID},${newInterestRate})`;
         sql:ExecutionResult|sql:Error responce = dbClient->execute(query);
         if(responce is sql:Error){
             return responce;
@@ -877,7 +879,7 @@ service / on new http:Listener(9090) {
         if (audience != "BankAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `CALL ${F_dep_ID}`;
+        sql:ParameterizedQuery query = `CALL GetFixedDepositDetails(${F_dep_ID})`;
         FixedDepositDetails|sql:Error response = dbClient->queryRow(query);
         return response;
     }
@@ -905,7 +907,7 @@ service / on new http:Listener(9090) {
         if (audience != "BankAdmins") {
             return error("Unauthorized request");
         }
-        sql:ParameterizedQuery query = `CALL ${S_dep_ID}`;
+        sql:ParameterizedQuery query = `CALL GetSavingDepositDetails(${S_dep_ID})`;
         SavingsDepositDetails|sql:Error response = dbClient->queryRow(query);
         return response;
     }

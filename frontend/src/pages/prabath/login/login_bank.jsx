@@ -30,7 +30,7 @@ const login_bank = () => {
       <i class='bx bxs-bank'></i>
       </div>
         
-        <h3 className='heading'>BANK LOGIN</h3>
+        <h3 className='heading'>BANK ADMIN LOGIN</h3>
         
         <form onSubmit={submit}>
         <div className="form-group">

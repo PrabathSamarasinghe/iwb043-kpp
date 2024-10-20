@@ -5,7 +5,7 @@ import Login_bank from './pages/prabath/login/login_bank';
 import Login_admin from './pages/prabath/login/login_admin';
 import Manupage_1 from './pages/manujaya/bank_admin';
 import Manupage_2 from './pages/manujaya/bank_admin_signup';
-import Manupage_3 from './pages/manujaya/bank_admin_login';
+// import Manupage_3 from './pages/manujaya/bank_admin_login';
 import Manupage_4 from './pages/manujaya/user_info';
 import Dashboard from './pages/geesan/user_dashboard';
 import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
@@ -45,12 +45,15 @@ const App = () => {
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/user_dashboard' element={<Dashboard />} />
           
+
           <Route path="/bank_admin" element={<Manupage_1 />} />
           <Route path="/bank_admin_signup" element={<Manupage_2 />} />
           <Route path="/bank_admin_login" element={<Manupage_3 />} />
           <Route path="/user_info" element={<Manupage_4 />} />
           <Route path="/fixed_suggessions" element={< DashboardFixed />}/>
           <Route path="/savings_suggessions" element={< DashboardSavings />}/>
+
+
         </Routes>
       </BrowserRouter>
 

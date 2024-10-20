@@ -8,7 +8,7 @@ import ballerinax/mysql.driver as _;
 
 // Create a MySQL client
 
-mysql:Client dbClient = check new ("localhost", "KPP_user", "pass123",
+mysql:Client dbClient = check new ("localhost", "root", "0310",
     "kpp", 3306
 );
 

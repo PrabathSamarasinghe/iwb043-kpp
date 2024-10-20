@@ -10,24 +10,12 @@ const details = ({product, closedetails}) => {
         <div className={styles.udetailsparts}>
 
             <div class="form-row">
-                <label htmlFor="exampleInputfirstname">First Name</label>
+                <label htmlFor="exampleInputfullname">Full Name</label>
                 <input 
                     type="text" 
                     className="form-control" 
-                    id="exampleInputfirstname" 
-                    value={product.firstName} 
-                    aria-describedby="emailHelp" 
-                    readOnly 
-                />
-            </div>
-
-            <div class="form-row">
-                <label htmlFor="exampleInputlastname">Last Name</label>
-                <input 
-                    type="text" 
-                    className="form-control" 
-                    id="exampleInputlastname" 
-                    value={product.lastName} 
+                    id="exampleInputFullname" 
+                    value={product.fullName} 
                     aria-describedby="emailHelp" 
                     readOnly 
                 />

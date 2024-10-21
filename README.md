@@ -8,13 +8,13 @@ To test the application it is required to have Node, MySql and Ballerina install
 Execute the querries in the /database folder in the local database
 ## Setup Backend
 run these commands from the root:
-cd .\backend\BalServer\
-bal run
+###cd .\backend\BalServer\
+### bal run
 ## Setup Frontend
 run these commands from the root in a seperate terminal:
-cd .\frontend
-npm install
-npm run dev
+### cd .\frontend
+### npm install
+### npm run dev
 ## Testing
 goto http://localhost:5173/ to see the home page for the users
 goto http://localhost:5173/login_bank to login as a bank admin

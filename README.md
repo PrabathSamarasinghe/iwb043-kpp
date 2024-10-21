@@ -16,7 +16,7 @@ cd .\frontend
 npm install
 npm run dev
 ## Testing
-goto [localhost:](http://localhost:5173/) to see thw home page for the users
-goto [localhost:](http://localhost:5173/login_bank) to login as a bank admin
-goto [localhost:](http://localhost:5173/login_admin) to login as a system admin
-goto [localhost:](http://localhost:5173/bank_admin_signup) to signup as a bank admin
+goto http://localhost:5173/ to see the home page for the users
+goto http://localhost:5173/login_bank to login as a bank admin
+goto http://localhost:5173/login_admin to login as a system admin
+goto http://localhost:5173/bank_admin_signup to signup as a bank admin

@@ -15,7 +15,7 @@
 /* Login Form Container */
 .login {
     width: 50vh;
-    height: 60vh;
+    height: fit-content;
     background-color: rgb(114, 205, 236);
     padding: 15px;
     font-family: Cambria Math;

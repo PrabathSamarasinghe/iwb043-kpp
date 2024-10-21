@@ -48,7 +48,7 @@ const login_bank = () => {
           <button type="submit" className="btn btn-primary" onClick={() => {<Link to="/manujaya/bank_admin"> </Link>}}>Login</button>
 
           <p className="signup-link">
-            Don't have an account? <Link to="/signup_bank">Sign up</Link>
+            Don't have an account? <Link to="/bank_admin_signup">Sign up</Link>
           </p>
         </form>
       </div>

@@ -12,7 +12,6 @@ import InvesmentHome from './pages/kaveesha/Pages/InvestmentHome';
 import Help from './pages/kaveesha/Pages/Help';
 import Navbar from './pages/kaveesha/Components/Navbar';
 import Signup from './pages/prabath/signup/signup_user';
-import SignupBank from './pages/prabath/signup/signup_bank';
 import DashboardFixed from './pages/kaveesha/Pages/dashboardFixed';
 import DashboardSavings from './pages/kaveesha/Pages/dashboardSavings';
 
@@ -40,20 +39,15 @@ const App = () => {
           <Route path="/login_bank" element={<Login_bank />} />
           <Route path="/login_admin" element={<Login_admin />} />
           <Route path='/signup_user' element={<Signup />} />
-          <Route path='/signup_bank' element={<SignupBank />} />
           <Route path='/admin_dash' element={<AdminDash />} />
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/user_dashboard' element={<Dashboard />} />
           
-
           <Route path="/bank_admin" element={<Manupage_1 />} />
           <Route path="/bank_admin_signup" element={<Manupage_2 />} />
-          <Route path="/bank_admin_login" element={<Manupage_3 />} />
           <Route path="/user_info" element={<Manupage_4 />} />
           <Route path="/fixed_suggessions" element={< DashboardFixed />}/>
           <Route path="/savings_suggessions" element={< DashboardSavings />}/>
-
-
         </Routes>
       </BrowserRouter>
 

@@ -8,7 +8,7 @@ To test the application it is required to have Node, MySql and Ballerina install
 Execute the querries in the /database folder in the local database
 ## Setup Backend
 run these commands from the root:
-###cd .\backend\BalServer\
+### cd .\backend\BalServer\
 ### bal run
 ## Setup Frontend
 run these commands from the root in a seperate terminal:

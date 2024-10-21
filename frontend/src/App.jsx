@@ -43,14 +43,11 @@ const App = () => {
           {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
           <Route path='/user_dashboard' element={<Dashboard />} />
           
-
           <Route path="/bank_admin" element={<Manupage_1 />} />
           <Route path="/bank_admin_signup" element={<Manupage_2 />} />
           <Route path="/user_info" element={<Manupage_4 />} />
           <Route path="/fixed_suggessions" element={< DashboardFixed />}/>
           <Route path="/savings_suggessions" element={< DashboardSavings />}/>
-
-
         </Routes>
       </BrowserRouter>
 

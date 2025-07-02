@@ -12,6 +12,7 @@ import { productData, responsive } from './data';
 import { useState } from 'react';
 
 
+
 function bank_admin() {
 
      const [OpenModal, setOpenModal] = useState(false);
@@ -48,6 +49,7 @@ function bank_admin() {
                     {sdOpenModel && <SD_Modal dcloseModal={sdsetOpenModal} s_dep_id={s_dep_id} />}
                </div>
           </main>
+
      );
 }
 export default bank_admin;

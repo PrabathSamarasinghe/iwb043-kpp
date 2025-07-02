@@ -40,6 +40,8 @@
   background-color: rgb(3, 35, 89);
   color: white;
   cursor: pointer;
+
+
 }
 .corbg{
   background-color: rgba(255, 255, 255, 0.692);
@@ -50,6 +52,7 @@
 .bank_admin{
   width: 80%;
   position: relative;
+
   left: 10%;  
   
 }
@@ -78,3 +81,4 @@
 .signup__link{
   color: #000;
 }
+

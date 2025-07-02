@@ -1,0 +1,23 @@
+.heading{
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.signupdiv{
+    width: 80vh;
+    height: 100%;
+    background-color: rgb(14, 115, 177);
+    padding: 15px;
+    font-family: Cambria Math;
+    border-radius: 10px;
+    color: black;
+    position: relative;
+    left: 30%;
+    transform: translateY(2%);
+}
+
+.gender{
+    display: flex;
+    gap: 30px;
+}

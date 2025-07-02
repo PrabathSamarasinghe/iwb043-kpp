@@ -1,0 +1,76 @@
+.home{
+    background: url(/Home.png);
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* align-items: center;
+    border-radius: 5rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push elements to the top and bottom */
+    align-items: center;
+    /* border-radius: 50%; */
+
+}
+.home_text h1{
+    padding-top: 1.5rem;
+    font-size: 3.4rem;
+    color: rgb(1, 99, 141);
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.home button{
+    width: 200px;
+    padding: 15px 0;
+    border-radius: 25px;
+    margin: 20px 10px;
+    font-weight: bold;
+    border: 3px solid rgb(11, 99, 137);
+    background: transparent;
+    text-align: center;
+    color: rgb(11, 92, 127);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    
+}
+span{
+    background: rgb(11, 107, 148);
+    height: 100%;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 25px;
+    z-index: -1;
+}
+.home button:hover span{
+    width: 100%;
+    transition-duration: 0.5s;
+}
+.home button:hover{
+    border: none;
+    color: aliceblue;
+    transition-duration: 0.5s;
+}
+.home .button_container {
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+/*     width: 100%;
+    min-height: 100vh;
+    background: url(/public/home_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display:grid ;
+    grid-template-columns: repeat(auto-fit,minmax(17rem,auto));
+    align-items: center;
+    gap: 1.5rem; */

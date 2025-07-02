@@ -1,0 +1,80 @@
+.bankMain{
+  background-image: url('/bank_bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0px;
+}
+
+.msignupdiv{
+    width: 80vh;
+    height: 100%;
+    background-color: rgb(14, 115, 177);
+    padding: 15px;
+    font-family: Cambria Math;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    left: 30%;
+    transform: translateY(2%);
+}
+.login{
+    background:rgb(14, 115, 177);
+}
+.mcenter{
+    display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  height: 10vh; 
+  padding: 50px;
+}
+.mopen{
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    z-index: 1;
+}
+.mmbtn{
+  z-index: 0;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(3, 35, 89);
+  color: white;
+  cursor: pointer;
+}
+.corbg{
+  background-color: rgba(255, 255, 255, 0.692);
+  border-radius: 40px;
+  box-shadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)";
+}
+
+.bank_admin{
+  width: 80%;
+  position: relative;
+  left: 10%;  
+  
+}
+.react-multi-carousel-arrow {
+  width: 1px;   /* Adjust width */
+  height: 25px;  /* Adjust height */
+  font-size: 6px; /* Adjust font size of the arrow icon */
+  padding: 5px;  /* Adjust padding */
+  border-radius: 50%; /* Optional: make the button circular */
+}
+.modalBackground{
+  z-index: 1001;
+}
+
+.mtopic{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.icon_bankadmin{
+  margin: auto;
+  width: fit-content;
+}
+.bankadmin_login{
+  margin: auto;
+  width: fit-content;
+}
+.signup__link{
+  color: #000;
+}

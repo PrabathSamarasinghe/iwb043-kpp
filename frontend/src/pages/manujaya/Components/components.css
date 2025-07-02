@@ -1,0 +1,161 @@
+.mproduct--image {
+   width: 100%;
+   height: auto;
+   border-top-left-radius: 30px;
+   border-top-right-radius: 30px;
+  }
+  
+.cor_item{
+  width: fit-content;
+  display: block;
+}
+
+  .mcard {
+    box-shadow: 0 4px 8px 0 rgba(0, 3, 187, 0.592);
+    width: 220px;
+    height: 100%;
+    border-radius: 30px;
+    margin: 1rem 1rem;
+    text-align: center;
+    font-family: arial;
+    padding-bottom: 30px;
+  }
+  
+  .mno_investments {
+    color:white;
+    background-color:#000;
+    font-size: 22px;
+  }
+  .mhead {
+    color: grey;
+    font-size: 22px;
+   
+    
+  }
+  .menter {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin: 20px 0;
+    margin-right: 50px; 
+    font-weight: 600;
+  }
+  .mbtn{
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+
+    background-color:rgb(33, 19, 167);
+    color:#f3f9fa;
+    width: 500px;      /* Set specific width (optional) */
+   height: 50px;  
+    
+
+  }
+  /* .form-inline{
+    align-items: center;
+  } */
+  .mname{
+    color: #000;
+    background-color: rgba(12, 0, 124, 0.299);
+  }
+  .mdiscription{
+    color: rgb(79, 80, 79);
+  }
+  
+.modalBackground{
+  width: 100%;
+  position:fixed;
+  top: 20px;
+  left: 0px;
+  padding: 10px;
+  border-radius: 2%;
+}
+.model_main{
+  background-color: #388ed0;
+  border: 3px solid #000;
+  width: max-content;
+  margin: auto;
+  border-radius: 20px;
+  padding: 0px 30px;
+  color: #000;
+}
+
+.model_main h3{
+  background-color: #2f15ae;
+  text-align: center;
+}
+.manu_btn{
+  position: relative;
+  right: -720px;
+
+  font-size: 12px; /* Reduce the font size */
+    padding: 2px 5px; /* Adjust padding */
+    width: 25px; /* Set the width */
+    height: 25px; /* Set the height */
+    line-height: 1; /* Ensure text aligns well */
+    border-radius: 10%; /* Make it more circular */
+  
+}
+.mmmmbtn{
+  position: relative;
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(7, 16, 145);
+  color: white;
+  cursor: pointer;
+  left: 700;
+}
+/* 
+.form-control{
+  width: 500px;
+} */
+.m_btn {
+  margin: 5px;
+  background-color: #2f15ae;
+}
+.m_titleCloseBtn{
+  position: relative;
+  left: -200px;
+   /* Adjust the font size */
+  padding: 10px 5px; /* Adjust the padding */
+  width: 1px; /* Set a specific width */
+/* Set a specific height */
+   /* Ensure the text aligns well */
+  border-radius: 4px; 
+}
+.mm_titleCloseBtn{
+  text-align: right;
+}
+.mm_titleCloseBtn button{
+  margin: 10px 10px;
+}
+.manu__btn{
+  font-size: 12px; /* Reduce the font size */
+    padding: 2px 5px; /* Adjust padding */
+    width: 25px; /* Set the width */
+    height: 25px; /* Set the height */
+    line-height: 1; /* Ensure text aligns well */
+    border-radius: 10%; /* Make it more circular */
+}
+
+.details-grid {
+  display: flex; /* Use flexbox to create a two-column layout */
+  justify-content: space-between; /* Space between columns */
+  gap: 20px; /* Add space between the two columns */
+}
+
+.details-left,.details-middle, .details-right {
+  flex: 1; /* Each column takes equal space */
+}
+
+.details-left dt {
+  font-weight: bold; /* Make the labels bold */
+  margin-bottom: 10px; /* Add some space below labels */
+}
+
+.details-right dd {
+  margin: 0 0 10px 0; /* Add space between descriptions */
+}

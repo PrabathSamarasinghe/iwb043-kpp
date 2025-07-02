@@ -14,7 +14,9 @@ const login_admin = () => {
     try {
       const response = await axios.post(url, payload,{withCredentials:true}); // Use the custom Axios instance
       console.log('Response data:', response);
-      navigate("/prabath/admin_dash");
+
+      navigate("/admin_dash");
+
       // Handle the response (e.g., show a success message)
     } catch (error) {
       alert("Invalid username or password");

@@ -2,7 +2,7 @@ import React ,{ useState }from 'react'
 import './bank_admin.css';
 const bank_admin_signup = () => {
    // State to hold user inputs
-   const [inputData, setInputData] = useState({User_name:'',Password:'',Bank_ID:'',Branch_name:'',Service_no:'',});
+   const [inputData, setInputData] = useState({User_name:'',Password:'',Bank_Name:'',Branch_name:'',Service_no:'',});
   
    const handleChange = (event)=>{
     setInputData({
@@ -30,13 +30,14 @@ const bank_admin_signup = () => {
   return (
     <main>
       <div className='msignupdiv'>
-        <i class='bx bxs-bank'></i>
+        <div className='icon_bankadmin'><i className='bx bxs-bank'></i></div>
+        
         <h3 className='heading'>BANK ADMIN SIGNUP</h3>
         <form className="needs-validation" noValidate>
           <div className="form-row">
             <div className="col-md-6 mb-3">
-              <label htmlFor="validationCustom01">Bank_ID</label>
-              <input type="text" className="form-control" id="validationCustom01" placeholder="Enter Your Bank ID" name='Bank_ID' value={inputData.Bank_ID} onChange={handleChange}required />
+              <label htmlFor="validationCustom01">Bank_Name</label>
+              <input type="text" className="form-control" id="validationCustom01" placeholder="Enter Your Bank Name" name='Bank_Name' value={inputData.Bank_Name} onChange={handleChange}required />
               <div className="valid-feedback">
                 Looks good!
               </div>

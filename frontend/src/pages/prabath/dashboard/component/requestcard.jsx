@@ -17,7 +17,7 @@ const RequestCard = ({ product }) => {
     <>
       <div className="request">
         <div className='namebox'>
-          <h3>{product.firstName}</h3>
+          <h3>{product.fullName}</h3>
         </div> 
         <div className="btnbox">
           <button className="viewbtn" onClick={popdetails}>View</button>

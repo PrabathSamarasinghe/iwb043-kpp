@@ -14,7 +14,9 @@ const login_user = () => {
     try {
       const response = await axios.post(url, payload,{withCredentials:true}); // Use the custom Axios instance
       console.log('Response data:', response);
-      navigate("/geesan/user_dashboard");
+
+      navigate("/user_dashboard");
+
       // Handle the response (e.g., show a success message)
     } catch (error) {
       alert("Invalid username or password");
@@ -47,7 +49,7 @@ const login_user = () => {
           <button type="submit" className="btn btn-primary">Login</button>
 
           <p className="signup-link">
-            Don't have an account? <Link to="/prabath/signup_user">Sign up</Link>
+            Don't have an account? <Link to="/signup_user">Sign up</Link>
           </p>
         </form>
       </div>

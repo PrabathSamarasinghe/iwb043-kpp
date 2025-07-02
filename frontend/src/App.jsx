@@ -24,37 +24,30 @@ import AboutUs from './pages/kaveesha/Pages/AboutUs';
 
 const App = () => {
   return (
-    
-    <div>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path='/' element = {<InvesmentHome />} />
-          <Route path='/help' element = {<Help />} />
-          <Route path="/aboutus" element={<AboutUs/>} />
-          
 
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>KPP_BANK</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
 
-          <Route path="/login_user" element={<Login_user />} />
-          <Route path="/login_bank" element={<Login_bank />} />
-          <Route path="/login_admin" element={<Login_admin />} />
-          <Route path='/signup_user' element={<Signup />} />
-          <Route path='/admin_dash' element={<AdminDash />} />
-          {/* <Route path='/prabath/user_dashboard' element={<UserDashboard />} /> */}
-          <Route path='/user_dashboard' element={<Dashboard />} />
-          
-          <Route path="/bank_admin" element={<Manupage_1 />} />
-          <Route path="/bank_admin_signup" element={<Manupage_2 />} />
-          <Route path="/user_info" element={<Manupage_4 />} />
-          <Route path="/fixed_suggessions" element={< DashboardFixed />}/>
-          <Route path="/savings_suggessions" element={< DashboardSavings />}/>
-        </Routes>
-      </BrowserRouter>
-
-      <footer className="footer">
-      <p>&copy; 2024 KPP. All rights reserved.</p>
-      </footer>
-    </div>
   )
 }
 

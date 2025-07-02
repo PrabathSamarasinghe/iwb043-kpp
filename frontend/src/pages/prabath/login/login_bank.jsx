@@ -15,7 +15,9 @@ const login_bank = () => {
     try {
       const response = await axios.post(url, payload,{withCredentials:true}); // Use the custom Axios instance
       console.log('Response data:', response);
+
       navigate("/bank_admin");
+
       // Handle the response (e.g., show a success message)
     } catch (error) {
       alert("Invalid username or password");

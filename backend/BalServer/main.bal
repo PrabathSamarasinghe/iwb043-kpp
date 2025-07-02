@@ -55,8 +55,7 @@ service / on new http:Listener(9090) {
         }
 
         return http:NOT_FOUND;
-    }
-
+   
     resource function get SysAdmin/name(http:Request req) returns string|http:NotFound|error {
         // Get system admin name
         http:Cookie[] cookies = req.getCookies();
@@ -76,6 +75,7 @@ service / on new http:Listener(9090) {
         string|string[]? audience = decRes[1].aud;
 
         // Ensure the request is coming from an admin token
+
         if (audience != "SysAdmins") {
             return error("Unauthorized request");
         }
@@ -83,6 +83,7 @@ service / on new http:Listener(9090) {
         // Query the database to fetch admin name using the username
         sql:ParameterizedQuery query = `SELECT name FROM system_admins WHERE username = ${username}`;
         string response = check dbClient->queryRow(query);
+
         io:print(response);
         return response;
     }
@@ -279,11 +280,14 @@ service / on new http:Listener(9090) {
         return http:OK;
     }
 
+
     //For Users:
     resource function post SignupUser(NewUser payl) returns http:Created|error {
         // Here you would typically validate the input and hash the password
         // For example:
+
         io:print("hihi");
+
         if (payl.username == "") {
             return error("Username cannot be empty");
         }
@@ -292,7 +296,9 @@ service / on new http:Listener(9090) {
             return error("Password must be at least 6 characters long");
         }
         string hashedpass = crypto:hashSha256(payl.password.toBytes()).toBase16();
+
         sql:ParameterizedQuery query = `call AddNewUserAndRegUser(${payl.username},${hashedpass},${payl.NIC},${payl.full_name},${payl.gender},${payl.birthday},${payl.address},${payl.phone_number},${payl.e_mail})`;
+
         sql:ExecutionResult|sql:Error result = dbClient->execute(query);
         if (result is sql:Error) {
             return result;
@@ -424,7 +430,9 @@ service / on new http:Listener(9090) {
         if (audience != "users") {
             return error("Unauthorized request");
         }
+
         sql:ParameterizedQuery query = `call GetUnconfirmedFixedDepositsHistory(${username})`;
+
         stream<FixedDeposit, sql:Error?> fds = dbClient->query(query);
         return from var fd in fds
             select fd;
@@ -442,6 +450,7 @@ service / on new http:Listener(9090) {
         if (authCookie is ()) {
             return http:NOT_FOUND;
         }
+
 
         string jwt = authCookie.value;
         var decRes = check jwt:decode(jwt);
@@ -539,16 +548,20 @@ service / on new http:Listener(9090) {
             return error("Unauthorized request");
         }
 
+
         sql:ParameterizedQuery query = `call GetSuitableFixedProducts(${username},${amount},${period})`;
         stream<FixedProduct, sql:Error?> sds = dbClient->query(query);
+
 
         return from var sd in sds
             select sd;
     }
 
+
     resource function post User/getSavingsSuggestions(http:Request req) returns SavingsProduct[]|http:NotFound|error {
         json payl = check req.getJsonPayload();
         int amount = check payl.amount;
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -568,6 +581,7 @@ service / on new http:Listener(9090) {
         if (audience != "users") {
             return error("Unauthorized request");
         }
+
 
 
         sql:ParameterizedQuery query = `call GetSuitableSavingsProducts(${username},${amount})`;
@@ -578,6 +592,7 @@ service / on new http:Listener(9090) {
     }
 
     resource function delete RemoveFixedInvestRequest(http:Request req, int F_dep_ID) returns http:NotFound|error|http:NoContent {
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -597,6 +612,7 @@ service / on new http:Listener(9090) {
         if (audience != "users") {
             return error("Unauthorized request");
         }
+
         sql:ParameterizedQuery query = `DELETE FROM fixed_deposites WHERE f_ID = ${F_dep_ID} AND username = ${username} AND confirmed = false`;
         sql:ExecutionResult|sql:Error result = dbClient->execute(query);
         if (result is sql:Error) {
@@ -686,6 +702,7 @@ service / on new http:Listener(9090) {
         json payl = check req.getJsonPayload();
         int S_ID = check payl.S_ID;
         decimal amount = check payl.amount;
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -705,6 +722,7 @@ service / on new http:Listener(9090) {
         if (audience != "users") {
             return error("Unauthorized request");
         }
+
 
         if (username is string) {
             // Call a stored procedure to insert the new savings deposit record
@@ -718,6 +736,7 @@ service / on new http:Listener(9090) {
 
     resource function get User/all(http:Request req) returns RegUser|http:NotFound|error {
         // Get user all fields
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -737,6 +756,7 @@ service / on new http:Listener(9090) {
         if (audience != "users") {
             return error("Unauthorized request");
         }
+
 
         sql:ParameterizedQuery query = `SELECT * FROM reg_users WHERE username = ${username}`;
         RegUser response = check dbClient->queryRow(query);
@@ -836,6 +856,7 @@ service / on new http:Listener(9090) {
         json payl = check req.getJsonPayload();
         int S_ID = check payl.S_ID;
         decimal newInterestRate = check  payl.newRate;
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -846,6 +867,7 @@ service / on new http:Listener(9090) {
         if (authCookie is ()) {
             return http:NOT_FOUND;
         }
+
         string jwt = authCookie.value;
         var decRes = check jwt:decode(jwt);
         string|string[]? audience = decRes[1].aud;
@@ -864,6 +886,7 @@ service / on new http:Listener(9090) {
     resource function post GetFixedDeposite(http:Request req) returns FixedDepositDetails|http:NotFound|error{
         json payl = check req.getJsonPayload();
         int F_dep_ID = check payl.F_dep_ID;
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -877,6 +900,7 @@ service / on new http:Listener(9090) {
 
         string jwt = authCookie.value;
         var decRes = check jwt:decode(jwt);
+
         string|string[]? audience = decRes[1].aud;
 
         // Ensure the request is coming from an admin token
@@ -920,6 +944,7 @@ service / on new http:Listener(9090) {
     resource function post ConfirmFixedDeposite(http:Request req) returns http:NotFound|http:Ok|error{
         json payl = check req.getJsonPayload();
         int F_dep_ID = check payl.F_dep_ID;
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -933,6 +958,7 @@ service / on new http:Listener(9090) {
 
         string jwt = authCookie.value;
         var decRes = check jwt:decode(jwt);
+
         string|string[]? audience = decRes[1].aud;
 
         if (audience != "BankAdmins") {
@@ -951,6 +977,7 @@ service / on new http:Listener(9090) {
     resource function post ConfirmSavingsDeposite(http:Request req) returns http:NotFound|http:Ok|error{
         json payl = check req.getJsonPayload();
         int S_dep_ID = check payl.S_dep_ID;
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -964,6 +991,7 @@ service / on new http:Listener(9090) {
 
         string jwt = authCookie.value;
         var decRes = check jwt:decode(jwt);
+
         string|string[]? audience = decRes[1].aud;
 
         if (audience != "BankAdmins") {
@@ -981,6 +1009,7 @@ service / on new http:Listener(9090) {
 
     resource function get BankAdmin/bankID(http:Request req) returns http:NotFound|error|int {
         // Get bankID
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -991,10 +1020,12 @@ service / on new http:Listener(9090) {
         if (authCookie is ()) {
             return http:NOT_FOUND;
         }
+
         string jwt = authCookie.value;
         var decRes = check jwt:decode(jwt);
         string? username = decRes[1].sub;
         string|string[]? audience = decRes[1].aud;
+
 
         if (audience != "BankAdmins") {
             return error("Unauthorized request");
@@ -1005,6 +1036,7 @@ service / on new http:Listener(9090) {
     }
 
     resource function get BankAdmin/verified(http:Request req) returns boolean|http:NotFound|error {
+
         http:Cookie[] cookies = req.getCookies();
         http:Cookie? authCookie = ();
         foreach var cookie in cookies {
@@ -1024,9 +1056,11 @@ service / on new http:Listener(9090) {
         if (audience != "BankAdmins") {
             return error("Unauthorized request");
         }
+
         sql:ParameterizedQuery query = `SELECT verified FROM bank_admins WHERE username = ${username}`;
         boolean response = check dbClient->queryRow(query);
         io:print(decRes[1].sub);
+
         return response;
     }
 
@@ -1058,7 +1092,6 @@ service / on new http:Listener(9090) {
         return response;
     }
 
-    
 
     // Common
     resource function get Logout(http:Request req) returns http:Response {
@@ -1072,6 +1105,7 @@ service / on new http:Listener(9090) {
         }
         return res;
     }
+
 
     resource function get CheckLogged(http:Request req) returns error|http:NotFound|string {
         //Checks if logged in
@@ -1118,9 +1152,12 @@ service / on new http:Listener(9090) {
         }
         return b;
 
+
     }
 }
 
 function init() {
     io:println("Server running on port 9090");
+
 }
+

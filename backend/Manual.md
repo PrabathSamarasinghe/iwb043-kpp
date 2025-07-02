@@ -1,3 +1,4 @@
+
 # User
 ### CheckUser       - returns User cookie
 ### User/RemoveFixedInvestRequest   -Deletes a given fixedInvest
@@ -22,11 +23,13 @@
   "phone_number": "+94123456789",
   "e_mail": "john.doe@example.com"
 }
+
 ### User/unconfirmedFixedDeposites -- pr.
 ### User/unconfirmedSavingsDeposites -- pr.
 ### User/historyFixedDeposites   -- pr.
 ### User/historySavingsDeposites   -- pr.
 ### User/getFixedSuggestions  -- pr.
+
  Ex: payload ==>
  {"period": 12,
   "amount": 5000.00}
@@ -99,3 +102,4 @@
 
 ## Pr
 ### AllBankStats -- pr.
+

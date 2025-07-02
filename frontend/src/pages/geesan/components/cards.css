@@ -18,6 +18,12 @@
   .some_card p{
     margin: 0px;
   }
+
+
+  .some_card p{
+    margin: 0px;
+  }
+
   /* Hover effect to enlarge the card */
   .some_card:hover {
     transform: scale(1.1);

@@ -111,7 +111,9 @@ service / on new http:Listener(9090) {
         }
 
 
+
         sql:ParameterizedQuery query = `call GetNonVerifiedUsers()`;
+
 
         stream<PendingUser,sql:Error?> response = dbClient->query(query);
 

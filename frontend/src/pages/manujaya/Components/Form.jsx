@@ -23,7 +23,7 @@ function Form({setData,setOpen,type}){
           required
           />
   </div>
- <div><button  type="submit" className="mmbtn">Get User Info</button></div> 
+ <div><button  type="submit" className="button mmbtn">Get User Info</button></div> 
 </form>
     );
 }

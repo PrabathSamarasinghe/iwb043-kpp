@@ -12,7 +12,7 @@ CREATE TABLE users (
 -- Details of registered users
 CREATE TABLE reg_users (
     username VARCHAR(20) NOT NULL,
-    NIC VARCHAR(12) NOT NULL,
+    NIC VARCHAR(12) NOT NULL UNIQUE,
     full_name VARCHAR(100) NOT NULL,
     gender ENUM('Male', 'Female', 'Other') NOT NULL,
     birthday DATE NOT NULL,

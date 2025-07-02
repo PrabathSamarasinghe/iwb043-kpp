@@ -1,10 +1,9 @@
 import React from "react";
 import '../Styles/dashboardSavings.css';
 
-export default function dashboardSavings() {
+export default function DashboardSavings() {
     return (
          <div className="dashboardSavings">
-            <section>
                 <div className="invesment-container">
                     <div className="invesment-header">
                         <h1>Investment Amount</h1>
@@ -26,11 +25,9 @@ export default function dashboardSavings() {
                     </div>
                     <button className="Invest-button">INVEST</button>
                 </div>
-
                 <div className="empty-box">
                     <h2>Best Options</h2>
                 </div>
-            </section>
             </div>
         
     );

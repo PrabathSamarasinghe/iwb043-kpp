@@ -12,6 +12,8 @@ import { productData, responsive } from './data';
 import { useState } from 'react';
 
 
+
+
 function bank_admin() {
 
      const [OpenModal, setOpenModal] = useState(false);
@@ -36,8 +38,8 @@ function bank_admin() {
                     <Form type="Savings" setData={set_s_dep_id} setOpen={sdsetOpenModal} />
                     <hr />
                     <div className='mopen'>
-                         <button className="mmbtn" onClick={() => { setOpenModal(true); }}>Update Fixed Product<br></br> Interest Rates</button>
-                         <button className="mmbtn" onClick={() => { ssetOpenModal(true); }}>Update Saving Product<br></br> Interest Rates</button>
+                         <button className="button mmbtn" onClick={() => { setOpenModal(true); }}>Update Fixed Product<br></br> Interest Rates</button>
+                         <button className="button mmbtn" onClick={() => { ssetOpenModal(true); }}>Update Saving Product<br></br> Interest Rates</button>
                     </div>
                     {OpenModal && <F_Modal closeModal={setOpenModal} />}
                     {sOpenModal && <S_Modal scloseModal={ssetOpenModal} />}
@@ -48,6 +50,7 @@ function bank_admin() {
                     {sdOpenModel && <SD_Modal dcloseModal={sdsetOpenModal} s_dep_id={s_dep_id} />}
                </div>
           </main>
+
      );
 }
 export default bank_admin;

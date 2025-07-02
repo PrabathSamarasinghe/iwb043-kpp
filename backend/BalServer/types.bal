@@ -15,6 +15,7 @@ type BankAdmin record {|
     string service_No;       
     boolean verified;        
 |};
+
 type NewBankAdmin record {|
     string username;
     string password;         
@@ -28,6 +29,7 @@ type PendingBankAdmin record {|
     string branch_name;      
     string service_No;        
 |};
+
 type RegUser record {|
     string username;
     string NIC;
@@ -36,7 +38,9 @@ type RegUser record {|
     string birthday;
     string address;
     string phone_number;
+
     string? e_mail;
+
     boolean verified;
 |};
 type NewUser record {
@@ -50,6 +54,7 @@ type NewUser record {
     string phone_number;
     string? e_mail;
 };
+
 type PendingUser record {|
     string username;
     string NIC;
@@ -60,6 +65,7 @@ type PendingUser record {|
     string phone_number;
     string? e_mail;
 |};
+
 type FixedDeposit record {
     string product_name;
     string bank_name;
@@ -76,6 +82,7 @@ type SavingsDeposit record {
     decimal amount;
     string date_of_deposite;
 };
+
 
 type FixedDepositDetails record {
     string product_name;
@@ -109,6 +116,7 @@ type SavingsDepositDetails record {
     string? e_mail;
     boolean confirmed;
 };
+
 type FixedProduct record {|
     int f_ID;
     string product_name;
@@ -122,4 +130,19 @@ type SavingsProduct record {|
     string product_name;
     string bank_name;
     decimal interest_rate;
+
 |};
+
+type BankStat record {
+    string Bank_Name;
+    int stat;
+};
+
+type BankStats record {
+    string Bank_Name;
+    int fixed_invest_number;
+    int fixed_invest_amount;
+    int savings_invests_number;
+    int savings_invests_amount;
+};
+

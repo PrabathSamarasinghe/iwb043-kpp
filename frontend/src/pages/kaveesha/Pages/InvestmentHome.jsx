@@ -12,7 +12,9 @@ export default function InvesmentHome() {
             <h1>Welcome!<br/>This is Your Invesment Planner</h1>
         </div>
         <div className='button_container'>
-          <Link to = "/geesan/user_dashboard">
+
+          <Link to = "/user_dashboard">
+
             <button><span></span>Your Invesments</button>
             </Link>
         </div>

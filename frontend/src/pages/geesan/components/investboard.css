@@ -1,3 +1,9 @@
+.Udash{
+    background-image: url(/dashbg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .mainContainer{
     background-color: rgba(255, 255, 255, 0.289);
     min-height: 400px;
@@ -20,7 +26,7 @@
     min-width: 100%; /* Adjust this width as needed */
     border: 1px solid #e0e0e0; /* Light border to enhance the edge */
     transition: box-shadow 0.3s ease; /* Smooth transition for shadow changes */
-    background-color: white; /* White background */
+    background-color: rgba(255, 255, 255, 0.573); /* White background */
     margin-bottom: 20px;
 }
 .box:hover {
@@ -29,8 +35,8 @@
 .subBoard {
     display: flex; /* Enables flexbox layout */
     flex-wrap: wrap;
-    justify-content: center; /* Centers items vertically */
-    align-items: left; /* Centers items horizontally */
+    justify-content: start;
+    align-items: center;
     min-height: 200px;
 }
   

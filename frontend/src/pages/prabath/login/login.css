@@ -7,15 +7,19 @@
 
 /* User Icon at the Top */
 .bx {
-    color: white;
+    color: rgb(7, 59, 91);
     font-size: 120px;
     text-align: center; /* Center horizontally */
 }
 
 /* Login Form Container */
 .login {
+<<<<<<< HEAD
     width: 50vh;
-    height: 60vh;
+=======
+    width: fit-content;
+>>>>>>> 295efc528dd577c62a31b839529f9d94fb16f3f1
+    height: fit-content;
     background-color: rgb(114, 205, 236);
     padding: 15px;
     font-family: Cambria Math;

@@ -2,22 +2,19 @@ import React, { useState } from 'react'
 import './login.css'
 import 'boxicons'
 import { Link, useNavigate } from 'react-router-dom';
-import axiosInstance from '../../auth';
+import axios from 'axios';
 const login_user = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   async function submit (event){
     event.preventDefault();
-    //post the username password to the backend
-    
     const payload = {username : username, password : password};
-    const url = "/CheckUser";
+    const url = "http://localhost:9090/CheckUser";
     try {
-      const response = await axiosInstance.post(url, payload); // Use the custom Axios instance
-      console.log('Response data:', response.data);
-      localStorage.setItem('authToken', response.data);// Handle the response data
-      navigate("/geesan/user_dashboard");
+      const response = await axios.post(url, payload,{withCredentials:true}); // Use the custom Axios instance
+      console.log('Response data:', response);
+      navigate("/user_dashboard");
       // Handle the response (e.g., show a success message)
     } catch (error) {
       alert("Invalid username or password");
@@ -37,7 +34,7 @@ const login_user = () => {
         <form onSubmit={submit}>
           <div className="form-group">
             <i className='bx bxs-user'></i>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='email' value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input type="username" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
           </div>
           <div className="form-group">
             <i className='bx bxs-lock-alt'></i>
@@ -50,7 +47,7 @@ const login_user = () => {
           <button type="submit" className="btn btn-primary">Login</button>
 
           <p className="signup-link">
-            Don't have an account? <Link to="/prabath/signup_user">Sign up</Link>
+            Don't have an account? <Link to="/signup_user">Sign up</Link>
           </p>
         </form>
       </div>
